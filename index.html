@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flying Text Over Image</title>
+
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+
+    </style>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', sans-serif;
+            overflow: hidden;
+        }
+
+        .main-div {
+            position: relative;
+        }
+
+        .main-div img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .navbar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            /* translucent */
+            color: white;
+            display: flex;
+            justify-content: flex-end;
+            /* align content to the right */
+            align-items: center;
+            padding: 15px 0px;
+            z-index: 10;
+            font-size: 1.5rem;
+            /*border: 2px solid white;*/
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            font-weight: bold;
+            /*border: 2px solid white;*/
+        }
+
+        .navbar a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+
+        .navbar a.nav1 {
+            margin: 0 20px 0 0;
+        }
+
+        .navbar a.nav2 {
+            margin: 0 20px 0 0;
+        }
+
+        .navbar a.nav3 {
+            margin: 0 20px 0 0;
+        }
+
+        .navbar a.nav4 {
+            margin: 0 50px 0 0;
+        }
+
+        .navbar .logo {
+            width: 85px;
+            height: auto;
+            margin-left: 30px;
+            /* adjust this value to move the logo */
+            margin-right: auto;
+        }
+
+        .flying-text {
+            position: fixed;
+            bottom: -50px;
+            width: 100%;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            pointer-events: none;
+            z-index: 5;
+
+        }
+
+        /* Unique animations with different stop heights */
+        .text1 {
+            animation: flyStop1 3s ease-out forwards;
+            animation-delay: 1s;
+        }
+
+        .text2 {
+            animation: flyStop2 3s ease-out forwards;
+            animation-delay: 1.5s;
+            font-size: 3rem;
+        }
+
+        .text3 {
+            animation: flyStop3 3s ease-out forwards;
+            animation-delay: 1s;
+        }
+
+        .text4 {
+            animation: flyStop4 3s ease-out forwards;
+            animation-delay: 1.5s;
+        }
+
+        .text5 {
+            animation: flyStop5 3s ease-out forwards;
+            animation-delay: 2s;
+        }
+
+        @keyframes flyStop1 {
+            from {
+                transform: translateY(-65vh);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(-65vh);
+                opacity: 1;
+            }
+        }
+
+        @keyframes flyStop2 {
+            from {
+                transform: translateY(0);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(-28vh);
+                opacity: 1;
+            }
+        }
+
+        @keyframes flyStop3 {
+            from {
+                transform: translateY(0);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(-36vh);
+                opacity: 1;
+            }
+        }
+
+        @keyframes flyStop4 {
+            from {
+                transform: translateY(0);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(-44vh);
+                opacity: 1;
+            }
+        }
+
+        @keyframes flyStop5 {
+            from {
+                transform: translateY(0);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(-52vh);
+                opacity: 1;
+            }
+        }
+
+        .text-pop {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            text-align: center;
+            font-size: 2em;
+            margin: 100px 0;
+        }
+
+        .text-pop.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main-div">
+        <img src="./images/5Fh2fbB.gif" alt="Background Image">
+        <div class="navbar">
+            <img class="logo" src="./images/CnB_logo.png" alt="Logo">
+            <a class="nav1" href="#">Home</a>
+            <a class="nav2" href="#">About</a>
+            <a class="nav3" href="#">Services</a>
+            <a class="nav4" href="#">Contact</a>
+        </div>
+    </div>
+
+    <!-- Flying texts -->
+    <div class="flying-text text1">WELCOME TO THE</div>
+    <div class="flying-text text2">CIGAR AND BRANDY CLUB</div>
+    <!--div class="flying-text text3">Scroll for More</div-->
+    <!--div class="flying-text text4">Stay Connected</div-->
+    <!--div class="flying-text text5">Thank You for Visiting</div-->
+
+
+
+    <script>
+
+
+
+    </script>
+</body>
+
+</html>
