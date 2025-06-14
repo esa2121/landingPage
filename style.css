@@ -6,7 +6,7 @@
     /* 0 = top, 1 = bottom */
     --font-ratio1: 0.055;
     /* define how big relative to image height (e.g. 6% of img height) */
-    --font-ratio2: 0.08;
+    --font-ratio2: 0.075;
 }
 
 * {
