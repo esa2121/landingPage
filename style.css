@@ -245,11 +245,16 @@ body {
   .phone-button svg {
     transform: translateY(4px);  /* move it down 4px */
   }
+
+    /* adjust button position */
+  .calendar-button svg {
+    transform: translateY(5px);  /* move it down 4px */
+  }
 }
 
 
 /*  — Desktop: show links, hide toggle — */
-.navbar .menu-toggle, .navbar .phone-button{
+.navbar .menu-toggle, .navbar .phone-button, .navbar .calendar-button {
   display: none;
   background: none;
   border: none;
@@ -270,7 +275,7 @@ body {
     padding: 10px 1rem;
   }
 
-  .navbar .menu-toggle, .navbar .phone-button{
+  .navbar .menu-toggle, .navbar .phone-button, .navbar .calendar-button {
     display: block;
   }
 
