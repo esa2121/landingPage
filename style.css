@@ -229,9 +229,9 @@ body {
   }
 
   /* shrink padding/margins for tighter screens */
-  .main-div, .navbar {
+  /*.main-div, .navbar {
     padding: 10px;
-  }
+  }*/
 
   /* adjust font sizes */
   body {
