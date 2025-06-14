@@ -240,11 +240,16 @@ body {
   h1 {
     font-size: 1.5rem;
   }
+
+  /* adjust button position */
+  .phone-button svg {
+    transform: translateY(4px);  /* move it down 4px */
+  }
 }
 
 
 /*  — Desktop: show links, hide toggle — */
-.navbar .menu-toggle {
+.navbar .menu-toggle, .navbar .phone-button{
   display: none;
   background: none;
   border: none;
@@ -265,7 +270,7 @@ body {
     padding: 10px 1rem;
   }
 
-  .navbar .menu-toggle {
+  .navbar .menu-toggle, .navbar .phone-button{
     display: block;
   }
 
@@ -297,6 +302,7 @@ body {
     background-color: rgba(255,255,255,0.2);
     border-radius: 5px;
   }
+  
 }
 
 
