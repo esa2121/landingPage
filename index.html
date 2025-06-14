@@ -21,20 +21,28 @@
 
     <div class="main-div">
         <img src="./images/5Fh2fbB.gif" alt="Background Image">
+
         <div class="navbar">
             <img class="logo" src="./images/CnB_logo.png" alt="Logo">
-            <a class="nav1" href="#">Home</a>
-            <a class="nav2" href="#">About</a>
-            <a class="nav3" href="#">Services</a>
-            <a class="nav4" href="#">Contact</a>
+
+            <!-- Hamburger toggle (hidden on desktop, shown on mobile) -->
+            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+
+            <!-- Nav links now live inside this wrapper -->
+            <div class="menu">
+                <a class="nav1" href="#">Home</a>
+                <a class="nav2" href="#">About</a>
+                <a class="nav3" href="#">Services</a>
+                <a class="nav4" href="#">Contact</a>
+            </div>
         </div>
 
         <!-- Flying texts -->
-    <div class="flying-text text1">WELCOME TO THE</div>
-    <div class="flying-text text2">CIGAR AND BRANDY CLUB</div>
+        <div class="flying-text text1">WELCOME TO THE</div>
+        <div class="flying-text text2">CIGAR AND BRANDY CLUB</div>
     </div>
 
-    
+
     <!--div class="flying-text text3">Scroll for More</div-->
     <!--div class="flying-text text4">Stay Connected</div-->
     <!--div class="flying-text text5">Thank You for Visiting</div-->
@@ -42,27 +50,35 @@
 
 
     <script>
-       function updateImageHeightVariable() {
-  const img = document.querySelector('.main-div img');
-  if (!img) return;
-  // clientHeight gives the rendered height in px
-  const h = img.clientHeight;
-  document.documentElement.style.setProperty('--img-height', `${h}px`);
-}
+        function updateImageHeightVariable() {
+            const img = document.querySelector('.main-div img');
+            if (!img) return;
+            // clientHeight gives the rendered height in px
+            const h = img.clientHeight;
+            document.documentElement.style.setProperty('--img-height', `${h}px`);
+        }
 
-// 1) On window resize, re-measure
-window.addEventListener('resize', updateImageHeightVariable);
+        // 1) On window resize, re-measure
+        window.addEventListener('resize', updateImageHeightVariable);
 
-// 2) Once everything—including the image—is loaded, measure
-window.addEventListener('load', () => {
-  const img = document.querySelector('.main-div img');
-  if (img.complete) {
-    updateImageHeightVariable();
-  } else {
-    img.addEventListener('load', updateImageHeightVariable);
-  }
-});
+        // 2) Once everything—including the image—is loaded, measure
+        window.addEventListener('load', () => {
+            const img = document.querySelector('.main-div img');
+            if (img.complete) {
+                updateImageHeightVariable();
+            } else {
+                img.addEventListener('load', updateImageHeightVariable);
+            }
+        });
 
+
+        // grab the toggle button & navbar
+        const toggle = document.querySelector('.menu-toggle');
+        const navbar = document.querySelector('.navbar');
+
+        toggle.addEventListener('click', () => {
+            navbar.classList.toggle('open');
+        });
 
     </script>
 </body>
