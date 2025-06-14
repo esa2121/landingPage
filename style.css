@@ -1,23 +1,31 @@
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+:root {
+  --img-height: 0px;
+  --landing-ratio1: 0.45; /* 0 = top, 1 = bottom */
+  --landing-ratio2: 0.85; /* 0 = top, 1 = bottom */
+  --font-ratio1: 0.055;  /* define how big relative to image height (e.g. 6% of img height) */
+    --font-ratio2: 0.08; 
+}
 
-        body {
-            font-family: 'Cormorant Garamond', sans-serif;
-            overflow: hidden;
-        }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-        .main-div {
-            position: relative;
-        }
+body {
+  font-family: 'Cormorant Garamond', serif;
+  overflow: hidden;
+}
 
-        .main-div img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
+.main-div {
+  position: relative;
+}
+
+.main-div img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
         .navbar {
             position: absolute;
@@ -74,29 +82,32 @@
             margin-right: auto;
         }
 
-        .flying-text {
-            position: fixed;
-            bottom: -50px;
-            width: 100%;
-            text-align: center;
-            font-size: 2rem;
-            font-weight: bold;
-            color: white;
-            pointer-events: none;
-            z-index: 5;
-
-        }
+      .flying-text {
+  position: absolute;     /* now positioned inside .main-div */
+  top: 0;                 /* start at the very top of the image */
+  left: 50%;              /* center horizontally */
+  transform: translate(-50%, var(--img-height));
+  width: 100%;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  pointer-events: none;
+  z-index: 5;
+}
 
         /* Unique animations with different stop heights */
-        .text1 {
-            animation: flyStop1 3s ease-out forwards;
-            animation-delay: 1s;
-        }
+      .text1 {
+  animation: flyStop1 3s ease-out forwards;
+  animation-delay: 1s;
+  /* scale font in px: image-height * ratio */
+  font-size: calc(var(--img-height) * var(--font-ratio1));
+}
 
         .text2 {
             animation: flyStop2 3s ease-out forwards;
             animation-delay: 1.5s;
-            font-size: 3rem;
+            font-size: calc(var(--img-height) * var(--font-ratio2));
         }
 
         .text3 {
@@ -114,29 +125,29 @@
             animation-delay: 2s;
         }
 
-        @keyframes flyStop1 {
-            from {
-                transform: translateY(-65vh);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateY(-65vh);
-                opacity: 1;
-            }
-        }
+       @keyframes flyStop1 {
+  from {
+    transform: translate(-50%, calc(var(--img-height) * var(--landing-ratio1)));
+    opacity: 0;
+  }
+  to {
+    /* lands at (landing-ratio * image height) down from the top */
+    transform: translate(-50%, calc(var(--img-height) * var(--landing-ratio1)));
+    opacity: 1;
+  }
+}
 
         @keyframes flyStop2 {
-            from {
-                transform: translateY(0);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateY(-28vh);
-                opacity: 1;
-            }
-        }
+  from {
+    transform: translate(-50%, calc(var(--img-height) * var(--landing-ratio2)));
+    opacity: 0;
+  }
+  to {
+    /* lands at (landing-ratio * image height) down from the top */
+    transform: translate(-50%, calc(var(--img-height) * var(--landing-ratio2)));
+    opacity: 1;
+  }
+}
 
         @keyframes flyStop3 {
             from {

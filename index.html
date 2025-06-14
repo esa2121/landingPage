@@ -28,11 +28,13 @@
             <a class="nav3" href="#">Services</a>
             <a class="nav4" href="#">Contact</a>
         </div>
-    </div>
 
-    <!-- Flying texts -->
+        <!-- Flying texts -->
     <div class="flying-text text1">WELCOME TO THE</div>
     <div class="flying-text text2">CIGAR AND BRANDY CLUB</div>
+    </div>
+
+    
     <!--div class="flying-text text3">Scroll for More</div-->
     <!--div class="flying-text text4">Stay Connected</div-->
     <!--div class="flying-text text5">Thank You for Visiting</div-->
@@ -40,7 +42,26 @@
 
 
     <script>
+       function updateImageHeightVariable() {
+  const img = document.querySelector('.main-div img');
+  if (!img) return;
+  // clientHeight gives the rendered height in px
+  const h = img.clientHeight;
+  document.documentElement.style.setProperty('--img-height', `${h}px`);
+}
 
+// 1) On window resize, re-measure
+window.addEventListener('resize', updateImageHeightVariable);
+
+// 2) Once everything—including the image—is loaded, measure
+window.addEventListener('load', () => {
+  const img = document.querySelector('.main-div img');
+  if (img.complete) {
+    updateImageHeightVariable();
+  } else {
+    img.addEventListener('load', updateImageHeightVariable);
+  }
+});
 
 
     </script>
