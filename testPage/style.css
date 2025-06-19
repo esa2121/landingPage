@@ -1,0 +1,347 @@
+:root {
+    --img-height: 0px;
+    --landing-ratio1: 0.45;
+    /* 0 = top, 1 = bottom */
+    --landing-ratio2: 0.85;
+    /* 0 = top, 1 = bottom */
+    --font-ratio1: 0.055;
+    /* define how big relative to image height (e.g. 6% of img height) */
+    --font-ratio2: 0.075;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.main-div {
+    position: relative;
+}
+
+.main-div img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    /* translucent */
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    /* align content to the right */
+    align-items: center;
+    padding: 15px 0px;
+    z-index: 10;
+    font-size: 1.5rem;
+    /*border: 2px solid white;*/
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    font-weight: bold;
+    /*border: 2px solid white;*/
+}
+
+.navbar a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+.navbar a.nav1 {
+    margin: 0 20px 0 0;
+}
+
+.navbar a.nav2 {
+    margin: 0 20px 0 0;
+}
+
+.navbar a.nav3 {
+    margin: 0 20px 0 0;
+}
+
+.navbar a.nav4 {
+    margin: 0 50px 0 0;
+}
+
+.navbar .logo {
+    width: 85px;
+    height: auto;
+    margin-left: 30px;
+    /* adjust this value to move the logo */
+    margin-right: auto;
+}
+
+.flying-text {
+    position: absolute;
+    /* now positioned inside .main-div */
+    top: 0;
+    /* start at the very top of the image */
+    left: 50%;
+    /* center horizontally */
+    transform: translate(-50%, var(--img-height));
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* Unique animations with different stop heights */
+.text1 {
+    animation: flyStop1 3s ease-out forwards;
+    animation-delay: 1s;
+    /* scale font in px: image-height * ratio */
+    font-size: calc(var(--img-height) * var(--font-ratio1));
+}
+
+.text2 {
+    animation: flyStop2 3s ease-out forwards;
+    animation-delay: 1.5s;
+    font-size: calc(var(--img-height) * var(--font-ratio2));
+}
+
+
+
+@keyframes flyStop1 {
+    from {
+        transform: translate(-50%, calc(var(--img-height) * var(--landing-ratio1)));
+        opacity: 0;
+    }
+
+    to {
+        /* lands at (landing-ratio * image height) down from the top */
+        transform: translate(-50%, calc(var(--img-height) * var(--landing-ratio1)));
+        opacity: 1;
+    }
+}
+
+@keyframes flyStop2 {
+    from {
+        transform: translate(-50%, calc(var(--img-height) * var(--landing-ratio2)));
+        opacity: 0;
+    }
+
+    to {
+        /* lands at (landing-ratio * image height) down from the top */
+        transform: translate(-50%, calc(var(--img-height) * var(--landing-ratio2)));
+        opacity: 1;
+    }
+}
+
+.text-pop {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    text-align: center;
+    font-size: 2em;
+    margin: 100px 0;
+}
+
+.text-pop.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+/* at 768px and below… */
+@media only screen and (max-width: 768px) {
+  .main-div {
+    width: 100%;          /* full viewport width */
+    height: 355px;        /* or whatever fixed height you want */
+    overflow: hidden;     /* hide the overflow */
+    position: relative;
+  }
+
+  .main-div img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;    /* scale & crop to fill */
+    object-position: 50% 50%; /* center of image stays visible */
+  }
+
+  /* shrink padding/margins for tighter screens */
+  /*.main-div, .navbar {
+    padding: 10px;
+  }*/
+
+  /* adjust font sizes */
+  body {
+    font-size: 16px;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  /* adjust button position */
+  .phone-button svg {
+    transform: translateY(4px);  /* move it down 4px */
+  }
+
+    /* adjust button position */
+  .calendar-button svg {
+    transform: translateY(5px);  /* move it down 4px */
+  }
+}
+
+
+/*  — Desktop: show links, hide toggle — */
+.navbar .menu-toggle, .navbar .phone-button, .navbar .calendar-button {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  padding: 0 1rem;
+}
+.navbar .menu {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .navbar {
+    justify-content: space-between;
+    padding: 10px 1rem;
+  }
+
+  .navbar .menu-toggle, .navbar .phone-button, .navbar .calendar-button {
+    display: block;
+  }
+
+   .navbar .menu {
+    display: none;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.95);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    align-items: center;
+  }
+  .navbar.open .menu {
+    display: flex;
+  }
+
+  .navbar .menu a {
+    display: inline-block;    /* shrink to fit text+padding */
+    width: auto;              /* no longer 100% wide */
+    margin: 0.2rem 0;         /* vertical spacing */
+    padding: 0.75rem 1.5rem;  /* give it some clickable area */
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .navbar .menu a:hover {
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 5px;
+  }
+  
+}
+
+
+.main-bullets {
+    font-size: 1.25rem;
+   
+    margin-top: 50px;
+    text-align: center;
+}
+
+.main-bullets .main-bullet1 {
+   width: 40%;
+   /*border:1px solid red;
+   border-radius: 5px;*/
+   padding: 10px;
+   margin: 10px auto;
+   font-family: Raleway, sans-serif;
+    font-size: 1.2rem;
+}
+
+.main-bullets .main-bullet2 {
+   width: 60%;
+
+   padding: 10px;
+   margin: 10px auto;
+   font-family: Raleway, sans-serif;
+}
+.main-bullet2 li{
+    margin-top: 10px;
+    font-size: 1.2rem;
+    text-align: left;
+
+}
+
+/*
+
+.text3 {
+    animation: flyStop3 3s ease-out forwards;
+    animation-delay: 1s;
+}
+
+.text4 {
+    animation: flyStop4 3s ease-out forwards;
+    animation-delay: 1.5s;
+}
+
+.text5 {
+    animation: flyStop5 3s ease-out forwards;
+    animation-delay: 2s;
+}
+    
+@keyframes flyStop3 {
+    from {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(-36vh);
+        opacity: 1;
+    }
+}
+
+@keyframes flyStop4 {
+    from {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(-44vh);
+        opacity: 1;
+    }
+}
+
+@keyframes flyStop5 {
+    from {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(-52vh);
+        opacity: 1;
+    }
+}
+*/
