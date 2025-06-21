@@ -1,8 +1,8 @@
 :root {
     --img-height: 0px;
-    --landing-ratio1: 0.45;
+    --landing-ratio1: 0.25;
     /* 0 = top, 1 = bottom */
-    --landing-ratio2: 0.85;
+    --landing-ratio2: 0.75;
     /* 0 = top, 1 = bottom */
     --font-ratio1: 0.055;
     /* define how big relative to image height (e.g. 6% of img height) */
@@ -38,21 +38,29 @@ body {
     width: 100%;
     background-color: rgba(239, 210, 107, 0.9);
     /* translucent */
-    color: white;
+    
     display: flex;
     justify-content: flex-end;
     /* align content to the right */
     align-items: center;
-    padding: 15px 0px;
+    padding: 10px 0px;
     z-index: 10;
     font-size: 1.5rem;
     /*border: 2px solid white;*/
 }
 
+.navbar .logo {
+    width: 200px;
+    height: auto;
+    margin-left: 30px;
+    /* adjust this value to move the logo */
+    margin-right: auto;
+}
+
 .navbar a {
-    color: white;
+    color: rgb(72, 73, 76);
     text-decoration: none;
-    padding: 15px;
+    padding: 10px;
     font-weight: bold;
     /*border: 2px solid white;*/
 }
@@ -78,20 +86,16 @@ body {
     margin: 0 50px 0 0;
 }
 
-.navbar .logo {
-    width: 85px;
-    height: auto;
-    margin-left: 30px;
-    /* adjust this value to move the logo */
-    margin-right: auto;
-}
+
+
+
 
 .flying-text {
     position: absolute;
     /* now positioned inside .main-div */
     top: 0;
     /* start at the very top of the image */
-    left: 50%;
+    left: 80%;
     /* center horizontally */
     transform: translate(-50%, var(--img-height));
     width: 100%;
