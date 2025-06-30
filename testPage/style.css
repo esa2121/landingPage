@@ -7,7 +7,7 @@
 
   /* Font sizing relative to hero height */
   --font-ratio1: 0.065;          /* text1 size = 6.5% of image height */
-  --font-ratio2: 0.095;          /* text2 size = 9.5% of image height */
+  --font-ratio2: 0.025;          /* text2 size = 9.5% of image height */
   --font-ratio_navbar: 0.03;     /* navbar font size */
   --font-ratio_navbarH: 0.07;    /* navbar logo height */
 
@@ -262,9 +262,10 @@ body {
     padding: 0.75rem 1.5rem;
     font-size: 1.2rem;
     text-align: center;
+    color: white;
   }
   .navbar .menu a:hover {
-    background-color: rgba(214, 174, 53, 0.32);
+    background-color: rgba(239, 210, 107, 0.9);
     border-radius: 5px;
   }
 
@@ -275,10 +276,10 @@ body {
   
   /* Hero flying-text smaller via new ratios */
   .text1 {
-    font-size: calc(var(--img-height) * 0.04) !important;  /* ~4% of hero height */
+    font-size: calc(var(--img-height) * 0.06) !important;  /* ~4% of hero height */
     }
   .text2 {
-    font-size: calc(var(--img-height) * 0.06) !important;  /* ~6% of hero height */
+    font-size: calc(var(--img-height) * 0.02) !important;  /* ~6% of hero height */
   }
 
 .main-bullets h1 {
