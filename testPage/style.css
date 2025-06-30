@@ -23,22 +23,40 @@
 
 body {
   font-family: 'Cormorant Garamond', serif;
+    background-color: #EFEFEF;                   /* bottom part stays white */
+
+  background-repeat: no-repeat;
+  background-size: 100% var(--img-height);   /* full width, hero-height tall */
+  background-position: top left;
 }
 
+/* 1) Make the hero container span the viewport and get a bg color */
 .main-div {
   position: relative;
+  width: 100%;
+
+  overflow: hidden;             /* keep any absolutely positioned text inside */
 }
 
-/* Hero background image only (direct child) */
+/* 2) Center your fixed-width image inside that full-width container */
 .main-div > img {
   display: block;
-  width: 100%;
+  width: 1200px;                /* whatever your design width is */
+  max-width: 100%;              /* will shrink on narrower screens */
+  margin: 0 auto;               /* centers the image horizontally */
   height: auto;
+}
+
+.main-div,
+.main-bullets {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 /* Navbar */
 .navbar {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -47,7 +65,7 @@ body {
   justify-content: flex-end;
   align-items: center;
   padding: 5px 0;
-  z-index: 10;
+  z-index: 1000;
   font-size: calc(var(--img-height) * var(--font-ratio_navbar));
 }
 
@@ -83,7 +101,7 @@ body {
   transform: translate(-50%, var(--img-height));
   text-align: center;
   font-weight: bold;
-  color: rgb(248, 179, 50);
+  color: rgb(72, 73, 76);
   pointer-events: none;
   z-index: 5;
 }
@@ -273,13 +291,43 @@ body {
     font-size: 1rem;     /* was 1.2rem */
   }
   
+
+ /* stack the image and overlay vertically */
+  .about-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ensure the picture img still fills its container */
+  .about-div > picture,
+  .about-div > img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* flow the overlay below the image */
+  .about-overlay {
+    position: static !important;
+    transform: none !important;
+    order: 1;
+    margin: 1rem 0 0;     /* top margin only */
+    
+    /* span the full width of its parent (the image) */
+    width: 100% !important;
+    max-width: 100%;
+    
+    /* include padding in that width */
+    box-sizing: border-box;
+  }
+
 }
 
 /* Main bullets section */
 .main-bullets {
-  font-size: 1.25rem;
   margin-top: 50px;
-  text-align: center;
+   text-align: center;
+  /*border: 3px solid rgb(30, 144, 255);*/  /* DodgerBlue border around the whole container */
 }
 .main-bullets .main-bullet1,
 .main-bullets .main-bullet2 {
@@ -288,7 +336,7 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 .main-bullets .main-bullet1 {
-  width: 40%;
+  width: 90%;
   font-size: 1.2rem;
 }
 .main-bullets .main-bullet2 {
@@ -298,4 +346,57 @@ body {
   margin-top: 10px;
   font-size: 1.2rem;
   text-align: left;
+}
+
+
+
+
+
+.about-div {
+  position: relative;     
+  max-width: 1200px;      
+  margin: 50px auto 0;    
+  overflow: visible;      /* allow overlay to expand outside */
+}
+
+.about-div img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.about-overlay {
+  position: absolute;
+    font-family: 'Raleway', sans-serif;
+  /* anchor top edge 10% down from top of the image */
+  top: calc(var(--img-height) * 0.10);
+  left: 27%;
+  transform: translateX(-50%);
+
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+
+  /* fluid width, let height grow freely */
+  width: clamp(280px, 50%, 600px);
+  height: auto;
+
+  /* remove max-height and scrolling */
+  /* max-height: ...;  */
+  overflow: visible;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.about-overlay h2 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+}
+
+.about-overlay p {
+  text-align: left;
+  margin: 0;
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  line-height: 1.4;
 }
