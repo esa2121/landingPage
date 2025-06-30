@@ -282,6 +282,28 @@ body {
     font-size: calc(var(--img-height) * 0.02) !important;  /* ~6% of hero height */
   }
 
+
+  /* Keyframes */
+@keyframes flyStop1 {
+  from {
+    transform: translate(-35%, calc(var(--img-height) * var(--landing-ratio1)));
+    opacity: 0;
+  }
+  to {
+    transform: translate(-35%, calc(var(--img-height) * var(--landing-ratio1)));
+    opacity: 1;
+  }
+}
+@keyframes flyStop2 {
+  from {
+    transform: translate(-35%, calc(var(--img-height) * var(--landing-ratio2)));
+    opacity: 0;
+  }
+  to {
+    transform: translate(-35%, calc(var(--img-height) * var(--landing-ratio2)));
+    opacity: 1;
+  }
+}
 .main-bullets h1 {
     font-size: 1.25rem;  /* was 1.5rem */
   }
