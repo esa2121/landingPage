@@ -437,6 +437,10 @@ img {
   font-size: 1.2rem;
 }
 
+.services-div h2 {
+    font-family: 'Cormorant Garamond', serif;
+}
+
 .about-div img {
   display: block;
   width: 100%;
@@ -470,6 +474,7 @@ img {
   text-align: center;
   margin-bottom: 0.5rem;
   font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  font-family: 'Cormorant Garamond', serif;
 }
 
 .about-overlay p {
