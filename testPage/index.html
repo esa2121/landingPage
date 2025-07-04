@@ -25,7 +25,12 @@
 <body>
 
     <div class="main-div">
-        <img src="./images/background_main_1.jpg" alt="Background Image">
+        <picture class="background-picture">
+            <!-- when viewport ≤768px, use the mobile‐optimized image -->
+            <source media="(max-width: 768px)" srcset="./images/background_main_2_mobile.jpg">
+            <!-- default desktop background -->
+            <img src="./images/background_main_1.jpg" alt="Background Image" class="hero-img">
+        </picture>
 
         <div class="navbar">
             <img class="logo" src="./images/ONEDAY_DENTAL_f_01_resized.png" alt="Logo">
@@ -104,40 +109,40 @@
     </div>
 
     <div class="about-div">
-          <picture class="about-picture">
-    <!-- mobile version when viewport ≤ 768px -->
-    <source media="(max-width: 768px)" srcset="./images/about_doctor_2.jpg">
-    <!-- default desktop image -->
-    <img src="./images/about_doctor_1.jpg" alt="about_doctor">
-  </picture>
+        <picture class="about-picture">
+            <!-- mobile version when viewport ≤ 768px -->
+            <source media="(max-width: 768px)" srcset="./images/about_doctor_2.jpg">
+            <!-- default desktop image -->
+            <img src="./images/about_doctor_1.jpg" alt="about_doctor">
+        </picture>
 
         <div class="about-overlay">
             <h2>Meet Dr. Hwang</h2><br>
             <p>
-Dr. Hwang is a highly accomplished dentist with <b>over 15 years of experience</b>, bringing a
-unique blend of expertise from both Korea and the United States. He is one of the rare
-dental professionals to have successfully completed specialty training in both countries,
-offering an unparalleled depth of knowledge and skill.<br><br>
-In Korea, he completed his residency in Oral and Maxillofacial Surgery at <b>Korea University
-Hospital</b>and earned a <b>Ph.D. from Korea University College of Medicine</b>. He served as a
-specialist in Oral and Maxillofacial Surgery, held a director position at the <b>Korean Academy
-of Implant Dentistry (KAID)</b>, and earned certification in Maxillofacial Plastic and
-Reconstructive Surgery in Korea. Dr. Hwang is particularly known for his exceptional skills
-in <b>complex implant surgery and wisdom tooth extractions</b>.<br><br>
-After relocating to the U.S., Dr. Hwang completed the <b>Advanced Education in General
-Dentistry (AEGD) </b>program at the University of Connecticut (UCONN). He then worked as a
-general dentist at various practices, including Midwest Dental in Wisconsin and Smile Dental
-and Top Dental in Virginia, treating a wide range of patients and dental needs. His cross-
-continental background makes him uniquely capable of delivering truly comprehensive
-care—seamlessly combining advanced surgical expertise with general dentistry.<br><br>
-Dr. Hwang was inspired to open OneDay Dental after witnessing the inconvenience and time
-burden patients often face when visiting multiple dental offices for specialized procedures.
-Motivated by empathy and a deep understanding of patient needs, he envisioned a single
-clinic where patients could receive complete dental treatment—efficiently and effectively.<br><br>
-Dr. Hwang's <b>unwavering commitment to patient care </b>means he strives to ensure that
-every patient leaves his office with a confident, satisfied smile. His compassionate, patient-
-centered approach, combined with his advanced clinical expertise, has earned him the
-lasting trust of those he treats.</p>
+                Dr. Hwang is a highly accomplished dentist with <b>over 15 years of experience</b>, bringing a
+                unique blend of expertise from both Korea and the United States. He is one of the rare
+                dental professionals to have successfully completed specialty training in both countries,
+                offering an unparalleled depth of knowledge and skill.<br><br>
+                In Korea, he completed his residency in Oral and Maxillofacial Surgery at <b>Korea University
+                    Hospital</b>and earned a <b>Ph.D. from Korea University College of Medicine</b>. He served as a
+                specialist in Oral and Maxillofacial Surgery, held a director position at the <b>Korean Academy
+                    of Implant Dentistry (KAID)</b>, and earned certification in Maxillofacial Plastic and
+                Reconstructive Surgery in Korea. Dr. Hwang is particularly known for his exceptional skills
+                in <b>complex implant surgery and wisdom tooth extractions</b>.<br><br>
+                After relocating to the U.S., Dr. Hwang completed the <b>Advanced Education in General
+                    Dentistry (AEGD) </b>program at the University of Connecticut (UCONN). He then worked as a
+                general dentist at various practices, including Midwest Dental in Wisconsin and Smile Dental
+                and Top Dental in Virginia, treating a wide range of patients and dental needs. His cross-
+                continental background makes him uniquely capable of delivering truly comprehensive
+                care—seamlessly combining advanced surgical expertise with general dentistry.<br><br>
+                Dr. Hwang was inspired to open OneDay Dental after witnessing the inconvenience and time
+                burden patients often face when visiting multiple dental offices for specialized procedures.
+                Motivated by empathy and a deep understanding of patient needs, he envisioned a single
+                clinic where patients could receive complete dental treatment—efficiently and effectively.<br><br>
+                Dr. Hwang's <b>unwavering commitment to patient care </b>means he strives to ensure that
+                every patient leaves his office with a confident, satisfied smile. His compassionate, patient-
+                centered approach, combined with his advanced clinical expertise, has earned him the
+                lasting trust of those he treats.</p>
         </div>
     </div>
     <!--div class="flying-text text4">Stay Connected</div-->

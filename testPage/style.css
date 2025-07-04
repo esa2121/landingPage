@@ -39,11 +39,22 @@ body {
 }
 
 /* 2) Center your fixed-width image inside that full-width container */
-.main-div > img {
+img {
   display: block;
   width: 1200px;                /* whatever your design width is */
   max-width: 100%;              /* will shrink on narrower screens */
   margin: 0 auto;               /* centers the image horizontally */
+  height: auto;
+}
+
+
+/* After */
+.background-picture,
+.background-picture img {
+  display: block;
+  width: 1200px;    /* or your desired design width */
+  max-width: 100%;
+  margin: 0 auto;
   height: auto;
 }
 
@@ -184,14 +195,14 @@ body {
 /* Responsive tweaks */
 @media only screen and (max-width: 768px) {
   .main-div {
-    width: 100%;
-    height: 630px;    /* adjust as needed */
+    
+    height: auto;    /* adjust as needed */
     overflow: hidden;
     position: relative;
   }
   .main-div > img {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
     object-position: 50% 50%;
   }
@@ -286,21 +297,21 @@ body {
   /* Keyframes */
 @keyframes flyStop1 {
   from {
-    transform: translate(-35%, calc(var(--img-height) * var(--landing-ratio1)));
+    transform: translate(-25%, calc(var(--img-height) * var(--landing-ratio1)*1.2));
     opacity: 0;
   }
   to {
-    transform: translate(-35%, calc(var(--img-height) * var(--landing-ratio1)));
+    transform: translate(-25%, calc(var(--img-height) * var(--landing-ratio1)*1.2));
     opacity: 1;
   }
 }
 @keyframes flyStop2 {
   from {
-    transform: translate(-35%, calc(var(--img-height) * var(--landing-ratio2)));
+    transform: translate(-25%, calc(var(--img-height) * var(--landing-ratio2)*1.2));
     opacity: 0;
   }
   to {
-    transform: translate(-35%, calc(var(--img-height) * var(--landing-ratio2)));
+    transform: translate(-25%, calc(var(--img-height) * var(--landing-ratio2)*1.2));
     opacity: 1;
   }
 }
