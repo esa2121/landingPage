@@ -147,18 +147,18 @@
     </div>
 
     <div id="services" class="services-div">
-      <h2>5 Reasons Patients Trust OneDay Dental</h2><br>
+        <h2>5 Reasons Patients Trust OneDay Dental</h2><br>
         <p>
             At OneDay Dental, we're dedicated to providing exceptional dental care that prioritizes
             your time, comfort, and results. Here are five compelling reasons why patients place
             their trust in us:</p>
         <ul>
-            <li><span style="font-weight: bold;">One Day: Complete Care in a Single Visit </span> 
-                We understand your time is valuable. That’s why we specialize in same-day extractions, 
+            <li><span style="font-weight: bold;">One Day: Complete Care in a Single Visit </span>
+                We understand your time is valuable. That’s why we specialize in same-day extractions,
                 implant placements, and prosthetic restorations. Thanks to our advanced technology
-                 and Dr. Hwang’s expertise, many complex procedures that typically require multiple
-                  appointments can now be completed in just one visit—so you can return to your daily 
-                  life sooner.</li>
+                and Dr. Hwang’s expertise, many complex procedures that typically require multiple
+                appointments can now be completed in just one visit—so you can return to your daily
+                life sooner.</li>
             <li><span style="font-weight: bold;">Customization:</span> We
                 offer a wide range of options to customize your cigars and
                 Brandy experience.</li>
@@ -211,6 +211,27 @@
                 .scrollIntoView({ behavior: 'smooth' });
         });
 
+        function updateAboutOverlayPadding() {
+            const pic = document.querySelector('.about-picture img');
+            const over = document.querySelector('.about-overlay');
+            const wrap = document.querySelector('.about-div');
+            if (!pic || !over || !wrap) return;
+
+            // get bottom‐edges relative to viewport
+            const picB = pic.getBoundingClientRect().bottom;
+            const overB = over.getBoundingClientRect().bottom;
+
+            // difference = overlay bottom goes this many px below picture bottom
+            const diff = Math.max(0, overB - picB);
+
+            // set CSS var on the wrapper (or on :root)
+            wrap.style.setProperty('--about-overlay-offset', diff + 'px');
+        }
+
+        // run once on load…
+        window.addEventListener('load', updateAboutOverlayPadding);
+        // …and again on resize
+        window.addEventListener('resize', updateAboutOverlayPadding);
     </script>
 </body>
 
