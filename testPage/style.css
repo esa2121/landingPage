@@ -192,6 +192,10 @@ img {
   transform: translateY(0);
 }
 
+
+
+
+
 /* Responsive tweaks */
 @media only screen and (max-width: 768px) {
   .main-div {
@@ -219,6 +223,12 @@ img {
     transform: translateY(5px);
   }
 }
+
+
+
+
+
+
 
 /* Desktop nav toggles */
 .navbar .menu-toggle,
@@ -278,6 +288,12 @@ img {
   .navbar .menu a:hover {
     background-color: rgba(239, 210, 107, 0.9);
     border-radius: 5px;
+  }
+
+  .navbar .logo {
+    /* force a constant height on mobile */
+    height: 50px !important;
+    width: auto;
   }
 
     /* Base body text smaller */
@@ -354,6 +370,12 @@ img {
     /* include padding in that width */
     box-sizing: border-box;
   }
+
+  .navbar .logo {
+
+  margin-left: 5px;
+
+}
 
 }
 
