@@ -59,7 +59,7 @@
             <!-- Nav links now live inside this wrapper -->
             <div class="menu">
                 <a class="nav1" href="#">Home</a>
-                <a class="nav2" href="#">About</a>
+                <a class="nav2" href="#about">About</a>
                 <a class="nav3" href="#">Services</a>
                 <a class="nav4" href="#">Contact</a>
             </div>
@@ -108,7 +108,7 @@
 
     </div>
 
-    <div class="about-div">
+    <div id="about" class="about-div">
         <picture class="about-picture">
             <!-- mobile version when viewport ≤ 768px -->
             <source media="(max-width: 768px)" srcset="./images/about_doctor_2.jpg">
@@ -145,6 +145,29 @@
                 lasting trust of those he treats.</p>
         </div>
     </div>
+
+    <div id="services" class="services-div">
+      <h2>5 Reasons Patients Trust OneDay Dental</h2><br>
+        <p>
+            At OneDay Dental, we're dedicated to providing exceptional dental care that prioritizes
+            your time, comfort, and results. Here are five compelling reasons why patients place
+            their trust in us:</p>
+        <ul>
+            <li><span style="font-weight: bold;">One Day: Complete Care in a Single Visit </span> 
+                We understand your time is valuable. That’s why we specialize in same-day extractions, 
+                implant placements, and prosthetic restorations. Thanks to our advanced technology
+                 and Dr. Hwang’s expertise, many complex procedures that typically require multiple
+                  appointments can now be completed in just one visit—so you can return to your daily 
+                  life sooner.</li>
+            <li><span style="font-weight: bold;">Customization:</span> We
+                offer a wide range of options to customize your cigars and
+                Brandy experience.</li>
+            <li><span style="font-weight: bold;">Quality:</span> We are
+                committed to providing the highest quality cigars and
+                Brandy to our clients.</li>
+        </ul>
+
+    </div>
     <!--div class="flying-text text4">Stay Connected</div-->
     <!--div class="flying-text text5">Thank You for Visiting</div-->
 
@@ -179,6 +202,13 @@
 
         toggle.addEventListener('click', () => {
             navbar.classList.toggle('open');
+        });
+
+        document.querySelector('.nav2').addEventListener('click', e => {
+            e.preventDefault();
+            document
+                .querySelector('.about-div')
+                .scrollIntoView({ behavior: 'smooth' });
         });
 
     </script>

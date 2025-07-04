@@ -30,6 +30,10 @@ body {
   background-position: top left;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* 1) Make the hero container span the viewport and get a bg color */
 .main-div {
   position: relative;
@@ -347,7 +351,13 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: var(--img-height);
   }
+
+  /* or give the services block a top margin */
+.services-div {
+  margin-top: calc(var(--img-height) * 0.5); /* tweak the multiplier until it's below the overlay */
+}
 
   /* ensure the picture img still fills its container */
   .about-div > picture,
@@ -413,6 +423,14 @@ img {
   max-width: 1200px;      
   margin: 50px auto 0;    
   overflow: visible;      /* allow overlay to expand outside */
+  padding-bottom: calc(var(--img-height) * 0.5);
+}
+
+
+.services-div {
+  margin: 0 auto;
+  padding: 0 1rem;
+  max-width: 1200px;   
 }
 
 .about-div img {
