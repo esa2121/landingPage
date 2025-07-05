@@ -650,3 +650,91 @@ hr {
     height: 150px;
   }
 }
+
+
+
+
+
+
+/* let the background image span full width */
+.contact-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* overlay box */
+.contact-box {
+  position: absolute;
+  top: 55%;                 /* vertical center */
+  left: 30%;                /* horizontal center */
+  transform: translate(-50%, -50%);
+  z-index: 2;               /* above the image but below navbar if navbar is z-index:3+ */
+  background-color: rgba(255,255,255,0.9);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  width: clamp(300px, 60%, 500px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* style the form inside */
+.contact-box h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.75rem;
+}
+
+.contact-box label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.contact-box input,
+.contact-box textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  font-family: inherit;
+}
+
+.contact-box button {
+  display: block;
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.75rem;
+  background: #EFD26B;
+  color: #48494C;
+  border: none;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.contact-box button:hover {
+  opacity: 0.9;
+}
+
+/* make sure navbar sits on top of everything */
+.navbar {
+  z-index: 3;
+}
+
+/* responsive tweak: shrink box on small screens */
+@media (max-width: 768px) {
+  .contact-img {
+    display: none;
+  }
+
+  .contact-box {
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 5.5rem;
+  }
+}
