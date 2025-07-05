@@ -699,6 +699,7 @@ hr {
   border: 1px solid #ccc;
   border-radius: 0.25rem;
   font-family: inherit;
+  font-size: 1rem;
 }
 
 .contact-box button {
