@@ -884,3 +884,32 @@ hr {
     padding: 2rem 1rem;
   }
 }
+
+
+
+/* wrap each learn-more + tooltip so we can position relative to the card */
+.learn-wrap {
+  position: relative;
+}
+
+/* hidden by default */
+.learn-wrap .tooltip {
+  display: none;
+  position: absolute;
+  top: 100%;               /* just below the “LEARN MORE” link */
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(200px, 40%, 300px);
+  background: #fff;
+  color: #333;
+  padding: 1rem;
+  border: 1px solid #888;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 10;
+}
+
+/* show when JS adds .visible */
+.learn-wrap .tooltip.visible {
+  display: block;
+}
