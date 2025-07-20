@@ -25,11 +25,12 @@
 <body>
 
     <div class="main-div">
+
         <picture class="background-picture">
             <!-- when viewport ≤768px, use the mobile‐optimized image -->
-            <source media="(max-width: 768px)" srcset="./images/background_main_2_mobile.jpg">
+            <source media="(max-width: 768px)" srcset="./images/background_main_2_mobile_plain.jpg">
             <!-- default desktop background -->
-            <img src="./images/background_main_1_plain.jpg" alt="Background Image" class="hero-img">
+            <img src="./images/background_main_2_plain.jpg" alt="Background Image" class="hero-img">
         </picture>
 
         <div class="navbar">
@@ -66,16 +67,23 @@
         </div>
 
         <!-- Flying texts -->
-        <div class="flying-text text1">WELCOME TO <br><br>
-            OneDay Dental
+        <div class="flying-text text1">WELCOME TO 
+
         </div>
         <div class="flying-text text2">
-            <img src="./images/ONEDAY_DENTAL_f_02_resize_logo.png" alt="Logo2">
-            Trusted Dentist in Chantilly, VA 
-            <br><i>for Implants, Family & Cosmetic Dentistry</i>
-
+            <div class="text2-line1">
+                OneDay<img src="./images/ONEDAY_DENTAL_f_02_resize_logo.png" alt="Logo2">Dental
+            </div>
+            <div class="text2-line2">
+                Trusted Dentist in Chantilly, VA
+            </div>
+            <div class="text2-line3">
+                <i>for Implants, Family &amp; Cosmetic Dentistry</i>
+            </div>
         </div>
 
+        <hr>
+        <hr>
     </div>
 
 
@@ -84,7 +92,7 @@
 
         <h1> &quot;One Day, One Doctor, One Complete Solution!&quot; <br><br>
             Looking for a trusted dentist in Chantilly, VA? OneDay Dental offers implants, cosmetic dentistry,
-             family care, and same-day emergency services in a comfortable setting.<br><br></h1>
+            family care, and same-day emergency services in a comfortable setting.<br><br></h1>
         <div class="main-bullet1">
             <p>At OneDay Dental, we offer a full spectrum of services—from essential treatments
                 like cavity fillings and gum disease therapy to crowns, bridges, root canal therapy, clear
@@ -125,42 +133,22 @@
         <div class="about-overlay">
             <h2>Meet Dr. Hwang</h2><br>
             <p>
-                Dr. Hwang is a highly accomplished dentist with <b>over 15 years of experience</b>, bringing a
+                Dr. Hwang is a highly accomplished dentist with over 15 years of experience, bringing a
                 unique blend of expertise from both Korea and the United States. He is one of the rare
                 dental professionals to have successfully completed specialty training in both countries,
                 offering an unparalleled depth of knowledge and skill.<br><br>
-                In Korea, he completed his residency in Oral and Maxillofacial Surgery at <b>Korea University
-                    Hospital</b>and earned a <b>Ph.D. from Korea University College of Medicine</b>. He served as a
-                specialist in Oral and Maxillofacial Surgery, held a director position at the <b>Korean Academy
-                    of Implant Dentistry (KAID)</b>, and earned certification in Maxillofacial Plastic and
-                Reconstructive Surgery in Korea. Dr. Hwang is particularly known for his exceptional skills
-                in <b>complex implant surgery and wisdom tooth extractions</b>.<br><br>
-                After relocating to the U.S., Dr. Hwang completed the <b>Advanced Education in General
-                    Dentistry (AEGD) </b>program at the University of Connecticut (UCONN). He then worked as a
-                general dentist at various practices, including Midwest Dental in Wisconsin and Smile Dental
-                and Top Dental in Virginia, treating a wide range of patients and dental needs. His cross-
-                continental background makes him uniquely capable of delivering truly comprehensive
-                care—seamlessly combining advanced surgical expertise with general dentistry.<br><br>
-                Dr. Hwang was inspired to open OneDay Dental after witnessing the inconvenience and time
-                burden patients often face when visiting multiple dental offices for specialized procedures.
-                Motivated by empathy and a deep understanding of patient needs, he envisioned a single
-                clinic where patients could receive complete dental treatment—efficiently and effectively.<br><br>
-                Dr. Hwang's <b>unwavering commitment to patient care </b>means he strives to ensure that
-                every patient leaves his office with a confident, satisfied smile. His compassionate, patient-
-                centered approach, combined with his advanced clinical expertise, has earned him the
-                lasting trust of those he treats.</p><br>
+            </p><br>
+            <a href="about.html" class="btn-schedule">Learn More</a>
         </div>
     </div>
 
     <div id="services" class="services-div">
-          
-        <hr><hr>
+
+        <hr>
+        <hr>
         <br>
-        <h2>5 Reasons Patients Trust OneDay Dental</h2><br>
-        <p>
-            At OneDay Dental, we're dedicated to providing exceptional dental care that prioritizes
-            your time, comfort, and results. Here are five compelling reasons why patients place
-            their trust in us:</p><br>
+        <h2>Five Reasons Patients Trust OneDay Dental</h2><br>
+
         <ol>
             <li><span style="font-weight: bold;">One Day: Complete Care in a Single Visit </span>
                 We understand your time is valuable. That's why we specialize in <b>same-day extractions,
@@ -200,71 +188,85 @@
     <br>
 
     <footer class="site-footer">
-  <!-- 1) Call-to-action -->
-  <div class="footer-cta">
-    <h2>Contact Dr. Hwang now</h2>
-    <a href="contact.html" class="btn-schedule">Schedule an appointment</a>
-  </div>
+        <!-- 1) Call-to-action -->
+        <div class="footer-cta">
+            <h2>Contact Dr. Hwang now</h2>
+            <a href="contact.html" class="btn-schedule">Schedule an appointment</a>
+        </div>
 
-  <hr>
+        <hr>
 
-  <!-- 2) Footer columns -->
-  <div class="footer-content">
-    <!-- ► Contact & map -->
-    <div class="footer-column contact">
-      <img src="./images/logo_nonT.jpg" alt="bottom Logo" class="footer-logo">
+        <!-- 2) Footer columns -->
+        <div class="footer-content">
+            <!-- ► Contact & map -->
+            <div class="footer-column contact">
+                <img src="./images/logo_nonT.jpg" alt="bottom Logo" class="footer-logo">
 
-      <div class="footer-info">
-        <!-- phone icon (inline SVG) -->
-        <svg viewBox="0 0 24 24" class="icon"><path d="M6.62 10.79a15.534 15.534 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.21 11.07 11.07 0 0 0 3.47.56 1 1 0 0 1 1 1v3.5a1 1 0 0 1-1 1A17.92 17.92 0 0 1 2 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.07 11.07 0 0 0 .56 3.47 1 1 0 0 1-.21 1.11l-2.2 2.2z"/></svg>
-        <a href="tel:123456789">123-456-789</a>
-      </div>
+                <div class="footer-info">
+                    <!-- phone icon (inline SVG) -->
+                    <svg viewBox="0 0 24 24" class="icon">
+                        <path
+                            d="M6.62 10.79a15.534 15.534 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.21 11.07 11.07 0 0 0 3.47.56 1 1 0 0 1 1 1v3.5a1 1 0 0 1-1 1A17.92 17.92 0 0 1 2 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.07 11.07 0 0 0 .56 3.47 1 1 0 0 1-.21 1.11l-2.2 2.2z" />
+                    </svg>
+                    <a href="tel:123456789">123-456-789</a>
+                </div>
 
-      <div class="footer-info">
-        <!-- location icon -->
-        <svg viewBox="0 0 24 24" class="icon"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 .001-5.001A2.5 2.5 0 0 1 12 11.5z"/></svg>
-        <span>4530 Walney Rd. #203, Chantilly, VA</span>
-      </div>
+                <div class="footer-info">
+                    <!-- location icon -->
+                    <svg viewBox="0 0 24 24" class="icon">
+                        <path
+                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 .001-5.001A2.5 2.5 0 0 1 12 11.5z" />
+                    </svg>
+                    <span>4530 Walney Rd. #203, Chantilly, VA</span>
+                </div>
 
-      <div class="social">
-        <span>Follow us</span>
-        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" class="icon fab"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 5 3.66 9.13 8.44 9.88v-7H7.9v-2.9h2.54V9.8c0-2.5 1.49-3.9 3.77-3.9 1.09 0 2.23.2 2.23.2v2.45H14.5c-1.26 0-1.65.78-1.65 1.57v1.88H16l-.41 2.9h-2.07v7C18.34 21.13 22 17 22 12z"/></svg></a>
-        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" class="icon fab"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10zm-5 3a5 5 0 1 0 .001 10.001A5 5 0 0 0 12 7zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm4.5-.5a1.5 1.5 0 1 1 0 3.001A1.5 1.5 0 0 1 16.5 8.5z"/></svg></a>
-      </div>
+                <div class="social">
+                    <span>Follow us</span>
+                    <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" class="icon fab">
+                            <path
+                                d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 5 3.66 9.13 8.44 9.88v-7H7.9v-2.9h2.54V9.8c0-2.5 1.49-3.9 3.77-3.9 1.09 0 2.23.2 2.23.2v2.45H14.5c-1.26 0-1.65.78-1.65 1.57v1.88H16l-.41 2.9h-2.07v7C18.34 21.13 22 17 22 12z" />
+                        </svg></a>
+                    <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" class="icon fab">
+                            <path
+                                d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10zm-5 3a5 5 0 1 0 .001 10.001A5 5 0 0 0 12 7zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm4.5-.5a1.5 1.5 0 1 1 0 3.001A1.5 1.5 0 0 1 16.5 8.5z" />
+                        </svg></a>
+                </div>
 
-      <div class="footer-map">
-        <!-- replace with your actual Google Maps embed URL -->
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3106.0001215023085!2d-77.43845782358535!3d38.87823904783367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b6443aa9f2ddc1%3A0xf8db59fa8bbdb819!2s4530%20Walney%20Rd%2C%20Chantilly%2C%20VA%2020151!5e0!3m2!1sen!2sus!4v1751688114187!5m2!1sen!2sus" 
-        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-    </div>
+                <div class="footer-map">
+                    <!-- replace with your actual Google Maps embed URL -->
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3106.0001215023085!2d-77.43845782358535!3d38.87823904783367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b6443aa9f2ddc1%3A0xf8db59fa8bbdb819!2s4530%20Walney%20Rd%2C%20Chantilly%2C%20VA%2020151!5e0!3m2!1sen!2sus!4v1751688114187!5m2!1sen!2sus"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
 
-    <!-- ► Hours -->
-    <div class="footer-column hours">
-      <h3>Hours</h3>
-      <ul>
-        <li><span>Monday:</span> 9:00 AM – 4:00 PM</li>
-        <li><span>Tuesday:</span> 9:00 AM – 6:00 PM</li>
-        <li><span>Wednesday:</span> 9:00 AM – 4:00 PM</li>
-        <li><span>Thursday:</span> 9:00 AM – 6:00 PM</li>
-        <li><span>Friday:</span> 9:00 AM – 2:00 PM</li>
-        <li><span>Saturday:</span> CLOSED</li>
-        <li><span>Sunday:</span> CLOSED</li>
-      </ul>
-    </div>
+            <!-- ► Hours -->
+            <div class="footer-column hours">
+                <h3>Hours</h3>
+                <ul>
+                    <li><span>Monday:</span> 9:00 AM – 4:00 PM</li>
+                    <li><span>Tuesday:</span> 9:00 AM – 6:00 PM</li>
+                    <li><span>Wednesday:</span> 9:00 AM – 4:00 PM</li>
+                    <li><span>Thursday:</span> 9:00 AM – 6:00 PM</li>
+                    <li><span>Friday:</span> 9:00 AM – 2:00 PM</li>
+                    <li><span>Saturday:</span> CLOSED</li>
+                    <li><span>Sunday:</span> CLOSED</li>
+                </ul>
+            </div>
 
-    <!-- ► Useful links -->
-    <div class="footer-column links">
-      <h3>Useful Links</h3>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#reviews">Patient Reviews</a></li>
-        <li><a href="./contact.html">Contact Us</a></li>
-        <li><a href="#privacy">Privacy Policy</a></li>
-      </ul>
-    </div>
-  </div>
-</footer>
+            <!-- ► Useful links -->
+            <div class="footer-column links">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#reviews">Patient Reviews</a></li>
+                    <li><a href="./contact.html">Contact Us</a></li>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 
     <!--div class="flying-text text4">Stay Connected</div-->
     <!--div class="flying-text text5">Thank You for Visiting</div-->
