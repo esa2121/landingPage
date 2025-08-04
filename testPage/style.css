@@ -995,6 +995,12 @@ hr {
   overflow-y: auto;
 }
 
+.card-face p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+
 /* back is rotated away by default */
 .card-back {
   transform: rotateY(180deg);
@@ -1092,6 +1098,11 @@ hr {
   transform: none !important;
   backface-visibility: visible !important;
   height: auto !important;
+}
+
+.card-face p {
+  font-size: 1.4rem;
+  line-height: 1.5;
 }
 
 }
