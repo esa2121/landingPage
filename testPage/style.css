@@ -1,28 +1,43 @@
 :root {
   /* Hero image & animation ratios */
-  --img-height: 0px;             /* set via JS */
-  --landing-ratio1: 0.22;        /* where text1 lands (25% down) */
-  --landing-ratio2: 0.3;        /* where text2 lands (35% down) */
-  --landing-ratio3: 0.15;        /* where text3 lands (15% down) */
+  --img-height: 0px;
+  /* set via JS */
+  --landing-ratio1: 0.22;
+  /* where text1 lands (25% down) */
+  --landing-ratio2: 0.3;
+  /* where text2 lands (35% down) */
+  --landing-ratio3: 0.15;
+  /* where text3 lands (15% down) */
 
   /* Font sizing relative to hero height */
-  --font-ratio1: 0.075;       /* 8.5% of viewport width */     
-  --font-ratio2: 0.095;          /* text2 size = 9.5% of image height */
-  --font-ratio_navbar: 0.05;     /* navbar font size */
-  --font-ratio_navbarH: 0.05;    /* navbar logo height */
+  --font-ratio1: 0.075;
+  /* 8.5% of viewport width */
+  --font-ratio2: 0.095;
+  /* text2 size = 9.5% of image height */
+  --font-ratio_navbar: 0.05;
+  /* navbar font size */
+  --font-ratio_navbarH: 0.05;
+  /* navbar logo height */
 
   /* Logo2 sizing relative to hero height */
-  --img-ratio3: 0.20;            /* Logo2 height = 10% of image height */
+  --img-ratio3: 0.20;
+  /* Logo2 height = 10% of image height */
 
-  --about-overlay-offset: 0px;   /* will be overridden by JS */
+  --about-overlay-offset: 0px;
+  /* will be overridden by JS */
 }
+
 /* 1) new vw‐based vars */
 :root {
   /* font‐sizes as % of viewport-width */
-  --font-vw-nav: clamp(14px, 2vw, 25px);  /* old: var(--font-ratio_navbar) × img-height */
-  --logo-h-vw: clamp(28px, 4vw, 54px);      /* old: var(--font-ratio_navbarH) × img-height */
-  --font-vw1: 8.5vw;     /* old text1 */
-  --font-vw2: 9.5vw;     /* old text2 */
+  --font-vw-nav: clamp(14px, 2vw, 25px);
+  /* old: var(--font-ratio_navbar) × img-height */
+  --logo-h-vw: clamp(28px, 4vw, 54px);
+  /* old: var(--font-ratio_navbarH) × img-height */
+  --font-vw1: 8.5vw;
+  /* old text1 */
+  --font-vw2: 9.5vw;
+  /* old text2 */
 }
 
 /* 2) navbar */
@@ -30,6 +45,7 @@
   font-size: var(--font-vw-nav);
   /* …other rules… */
 }
+
 .navbar .logo {
   height: var(--logo-h-vw);
 }
@@ -39,6 +55,7 @@
   font-size: var(--font-vw1);
   /* transform: …same landing ratios… */
 }
+
 .text2 {
   font-size: var(--font-vw2);
   /* … */
@@ -48,6 +65,7 @@
 .text1 {
   font-size: clamp(1rem, var(--font-vw1), 4rem);
 }
+
 .text2 {
   font-size: clamp(1rem, var(--font-vw2), 5rem);
 }
@@ -60,10 +78,12 @@
 
 body {
   font-family: 'Cormorant Garamond', serif;
-    background-color: #EFEFEF;                   /* bottom part stays white */
+  background-color: #EFEFEF;
+  /* bottom part stays white */
 
   background-repeat: no-repeat;
-  background-size: 100% var(--img-height);   /* full width, hero-height tall */
+  background-size: 100% var(--img-height);
+  /* full width, hero-height tall */
   background-position: top left;
 }
 
@@ -76,15 +96,19 @@ html {
   position: relative;
   width: 100%;
 
-  overflow: hidden;             /* keep any absolutely positioned text inside */
+  overflow: hidden;
+  /* keep any absolutely positioned text inside */
 }
 
 /* 2) Center your fixed-width image inside that full-width container */
 img {
   display: block;
-  width: 1200px;                /* whatever your design width is */
-  max-width: 100%;              /* will shrink on narrower screens */
-  margin: 0 auto;               /* centers the image horizontally */
+  width: 1200px;
+  /* whatever your design width is */
+  max-width: 100%;
+  /* will shrink on narrower screens */
+  margin: 0 auto;
+  /* centers the image horizontally */
   height: auto;
 }
 
@@ -93,7 +117,8 @@ img {
 .background-picture,
 .background-picture img {
   display: block;
-  width: 1200px;    /* or your desired design width */
+  width: 1200px;
+  /* or your desired design width */
   max-width: 100%;
   margin: 0 auto;
   height: auto;
@@ -118,11 +143,11 @@ img {
   align-items: center;
   padding: 5px 0;
   z-index: 1000;
- 
+
 }
 
 .navbar .logo {
-  
+
   width: auto;
   margin-left: 30px;
   margin-right: auto;
@@ -134,22 +159,36 @@ img {
   padding: 10px;
   font-weight: bold;
 }
+
 .navbar a:hover {
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 5px;
 }
 
-.navbar a.nav1 { margin-right: 20px; }
-.navbar a.nav2 { margin-right: 20px; }
-.navbar a.nav3 { margin-right: 20px; }
-.navbar a.nav4 { margin-right: 50px; }
+.navbar a.nav1 {
+  margin-right: 20px;
+}
+
+.navbar a.nav2 {
+  margin-right: 20px;
+}
+
+.navbar a.nav3 {
+  margin-right: 20px;
+}
+
+.navbar a.nav4 {
+  margin-right: 50px;
+}
 
 /* Flying text blocks: true center + downward offset */
 .flying-text {
   position: absolute;
   top: 0;
-  left: 50%;                                 /* center anchor */
-  width: 100%;                           /* span the full width */
+  left: 50%;
+  /* center anchor */
+  width: 100%;
+  /* span the full width */
   transform: translate(-50%, var(--img-height));
   text-align: center;
   font-weight: bold;
@@ -171,10 +210,8 @@ img {
   animation: flyStop1 3s ease-out forwards;
   animation-delay: 1s;
   font-size: calc(var(--img-height) * var(--font-ratio1));
-  transform: translate(
-    -50%,
-    calc(var(--img-height) * var(--landing-ratio1))
-  );
+  transform: translate(-50%,
+      calc(var(--img-height) * var(--landing-ratio1)));
 }
 
 /* TEXT 2 + Logo2 container */
@@ -182,17 +219,17 @@ img {
   animation: flyStop2 3s ease-out forwards;
   animation-delay: 1.5s;
   font-size: calc(var(--img-height) * var(--font-ratio2));
-  transform: translate(
-    -50%,
-    calc(var(--img-height) * var(--landing-ratio2))
-  );
+  transform: translate(-50%,
+      calc(var(--img-height) * var(--landing-ratio2)));
 }
+
 .flying-text.text2 {
   /* stack the three “lines” vertically and center them */
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.3rem;               /* space between each line */
+  gap: 0.3rem;
+  /* space between each line */
   text-align: center;
 }
 
@@ -200,20 +237,24 @@ img {
 .flying-text.text2 .text2-line1 {
   display: inline-flex;
   align-items: center;
-  gap: 0.2rem;               /* tweak the gap between “OneDay”, the <img>, and “Dental” */
+  gap: 0.2rem;
+  /* tweak the gap between “OneDay”, the <img>, and “Dental” */
   font-size: calc(var(--img-height) * var(--font-ratio2));
-  white-space: nowrap;       /* prevent wrapping in that first line */
-  color:rgb(255, 203, 16);
+  white-space: nowrap;
+  /* prevent wrapping in that first line */
+  color: rgb(255, 203, 16);
 }
 
 /* Second line: subtitle */
 .flying-text.text2 .text2-line2 {
-  font-size: calc(var(--img-height) * 0.045);  /* ~3.5% of hero height */
+  font-size: calc(var(--img-height) * 0.045);
+  /* ~3.5% of hero height */
 }
 
 /* Third line: italicized note */
 .flying-text.text2 .text2-line3 {
-  font-size: calc(var(--img-height) * 0.045);  /* ~2.5% of hero height */
+  font-size: calc(var(--img-height) * 0.045);
+  /* ~2.5% of hero height */
 }
 
 /* Size Logo2 inside text2 */
@@ -230,16 +271,19 @@ img {
     transform: translate(-50%, calc(var(--img-height) * var(--landing-ratio1)));
     opacity: 0;
   }
+
   to {
     transform: translate(-50%, calc(var(--img-height) * var(--landing-ratio1)));
     opacity: 1;
   }
 }
+
 @keyframes flyStop2 {
   from {
     transform: translate(-50%, calc(var(--img-height) * var(--landing-ratio2)));
     opacity: 0;
   }
+
   to {
     transform: translate(-50%, calc(var(--img-height) * var(--landing-ratio2)));
     opacity: 1;
@@ -255,6 +299,7 @@ img {
   font-size: 2em;
   margin: 100px 0;
 }
+
 .text-pop.visible {
   opacity: 1;
   transform: translateY(0);
@@ -267,26 +312,32 @@ img {
 /* Responsive tweaks */
 @media only screen and (max-width: 768px) {
   .main-div {
-    
-    height: auto;    /* adjust as needed */
+
+    height: auto;
+    /* adjust as needed */
     overflow: hidden;
     position: relative;
   }
-  .main-div > img {
+
+  .main-div>img {
     width: 100%;
     height: auto;
     object-fit: cover;
     object-position: 50% 50%;
   }
+
   body {
     font-size: 16px;
   }
+
   h1 {
     font-size: 1.5rem;
   }
+
   .phone-button svg {
     transform: translateY(4px);
   }
+
   .calendar-button svg {
     transform: translateY(5px);
   }
@@ -306,6 +357,7 @@ img {
   cursor: pointer;
   padding: 0 1rem;
 }
+
 .navbar .menu {
   display: flex;
   gap: 1rem;
@@ -317,18 +369,21 @@ img {
 
 /* Mobile nav */
 @media only screen and (max-width: 768px) {
-    :root {
-     --img-ratio3: 0.20;      
-    }
+  :root {
+    --img-ratio3: 0.20;
+  }
+
   .navbar {
     justify-content: space-between;
     padding: 10px 1rem;
   }
+
   .navbar .menu-toggle,
   .navbar .phone-button,
   .navbar .calendar-button {
     display: block;
   }
+
   .navbar .menu {
     display: none;
     flex-direction: column;
@@ -340,9 +395,11 @@ img {
     padding: 0;
     align-items: center;
   }
+
   .navbar.open .menu {
     display: flex;
   }
+
   .navbar .menu a {
     display: inline-block;
     width: auto;
@@ -352,6 +409,7 @@ img {
     text-align: center;
     color: white;
   }
+
   .navbar .menu a:hover {
     background-color: rgba(239, 210, 107, 0.9);
     border-radius: 5px;
@@ -363,56 +421,67 @@ img {
     width: auto;
   }
 
-    /* Base body text smaller */
+  /* Base body text smaller */
   body {
-    font-size: 14px;    /* was 16px */
-  }
-  
-  /* Hero flying-text smaller via new ratios */
-  .text1 {
-    font-size: calc(var(--img-height) * 0.06) !important;  /* ~4% of hero height */
-    }
-  .text2 {
-    font-size: calc(var(--img-height) * 0.02) !important;  /* ~6% of hero height */
+    font-size: 14px;
+    /* was 16px */
   }
 
- .text2 img {
-    margin-top: 1rem;   /* instead of 60px, use 1rem = font size of the text */
+  /* Hero flying-text smaller via new ratios */
+  .text1 {
+    font-size: calc(var(--img-height) * 0.06) !important;
+    /* ~4% of hero height */
   }
-  
+
+  .text2 {
+    font-size: calc(var(--img-height) * 0.02) !important;
+    /* ~6% of hero height */
+  }
+
+  .text2 img {
+    margin-top: 1rem;
+    /* instead of 60px, use 1rem = font size of the text */
+  }
+
   /* Keyframes */
-@keyframes flyStop1 {
-  from {
-    transform: translate(-50%, calc(var(--img-height) * var(--landing-ratio1)*1.3));
-    opacity: 0;
+  @keyframes flyStop1 {
+    from {
+      transform: translate(-50%, calc(var(--img-height) * var(--landing-ratio1)*1.3));
+      opacity: 0;
+    }
+
+    to {
+      transform: translate(-50%, calc(var(--img-height) * var(--landing-ratio1)*1.3));
+      opacity: 1;
+    }
   }
-  to {
-    transform: translate(-50%, calc(var(--img-height) * var(--landing-ratio1)*1.3));
-    opacity: 1;
+
+  @keyframes flyStop2 {
+    from {
+      transform: translate(-50%, calc(var(--img-height) * var(--landing-ratio2)*1.2));
+      opacity: 0;
+    }
+
+    to {
+      transform: translate(-50%, calc(var(--img-height) * var(--landing-ratio2)*1.2));
+      opacity: 1;
+    }
   }
-}
-@keyframes flyStop2 {
-  from {
-    transform: translate(-50%, calc(var(--img-height) * var(--landing-ratio2)*1.2));
-    opacity: 0;
+
+  .main-bullets h1 {
+    font-size: 1.25rem;
+    /* was 1.5rem */
   }
-  to {
-    transform: translate(-50%, calc(var(--img-height) * var(--landing-ratio2)*1.2));
-    opacity: 1;
-  }
-}
-.main-bullets h1 {
-    font-size: 1.25rem;  /* was 1.5rem */
-  }
-  
+
   /* Bullet text a bit smaller */
   .main-bullets .main-bullet1,
   .main-bullets .main-bullet2 {
-    font-size: 1rem;     /* was 1.2rem */
+    font-size: 1rem;
+    /* was 1.2rem */
   }
-  
 
- /* stack the image and overlay vertically */
+
+  /* stack the image and overlay vertically */
   .about-div {
     display: flex;
     flex-direction: column;
@@ -422,15 +491,16 @@ img {
 
 
   /* ensure the picture img still fills its container */
-  .about-div > picture,
-  .about-div > img {
+  .about-div>picture,
+  .about-div>img {
     width: 100%;
     height: auto;
   }
-  
-.services-div {
+
+  .services-div {
     margin-top: 4rem !important;
-    font-size: 1rem;     /* was 1.2rem */
+    font-size: 1rem;
+    /* was 1.2rem */
   }
 
   /* flow the overlay below the image */
@@ -438,44 +508,50 @@ img {
     position: static !important;
     transform: none !important;
     order: 1;
-    margin: 1rem 0 0;     /* top margin only */
+    margin: 1rem 0 0;
+    /* top margin only */
     padding-bottom: 0 !important;
-    
+
     /* span the full width of its parent (the image) */
     width: 100% !important;
     max-width: 100%;
-    
+
     /* include padding in that width */
     box-sizing: border-box;
   }
 
   .navbar .logo {
 
-  margin-left: 5px;
+    margin-left: 5px;
 
-}
+  }
 
 }
 
 /* Main bullets section */
 .main-bullets {
   margin-top: 50px;
-   text-align: center;
-  /*border: 3px solid rgb(30, 144, 255);*/  /* DodgerBlue border around the whole container */
+  text-align: center;
+  /*border: 3px solid rgb(30, 144, 255);*/
+  /* DodgerBlue border around the whole container */
 }
+
 .main-bullets .main-bullet1,
 .main-bullets .main-bullet2 {
   padding: 10px;
   margin: 10px auto;
   font-family: 'Raleway', sans-serif;
 }
+
 .main-bullets .main-bullet1 {
   width: 90%;
   font-size: 1.2rem;
 }
+
 .main-bullets .main-bullet2 {
   width: 60%;
 }
+
 .main-bullets .main-bullet2 li {
   margin-top: 10px;
   font-size: 1.2rem;
@@ -487,10 +563,11 @@ img {
 
 
 .about-div {
-  position: relative;     
-  max-width: 1200px;      
-  margin: 50px auto 0;    
-  overflow: visible;      /* allow overlay to expand outside */
+  position: relative;
+  max-width: 1200px;
+  margin: 50px auto 0;
+  overflow: visible;
+  /* allow overlay to expand outside */
   padding-bottom: var(--about-overlay-offset);
 }
 
@@ -498,12 +575,12 @@ img {
 .services-div {
   margin: 0 auto;
   padding: 0 1rem;
-  max-width: 1200px;   
+  max-width: 1200px;
   font-size: 1.2rem;
 }
 
 .services-div h2 {
-    font-family: 'Cormorant Garamond', serif;
+  font-family: 'Cormorant Garamond', serif;
 }
 
 .about-div img {
@@ -514,7 +591,7 @@ img {
 
 .about-overlay {
   position: absolute;
-    font-family: 'Raleway', sans-serif;
+  font-family: 'Raleway', sans-serif;
   /* anchor top edge 10% down from top of the image */
   top: calc(var(--img-height) * 0.10);
   left: 30%;
@@ -551,16 +628,17 @@ img {
 
 
 
-.services-div{
+.services-div {
   margin-top: 50px;
-   text-align: center;
-   font-family: 'Raleway', sans-serif;
-   width: 90%;
-  /*border: 3px solid rgb(30, 144, 255);*/  /* DodgerBlue border around the whole container */
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  width: 90%;
+  /*border: 3px solid rgb(30, 144, 255);*/
+  /* DodgerBlue border around the whole container */
 }
 
 
-.services-div li{
+.services-div li {
   margin-top: 10px;
   text-align: left;
 }
@@ -569,7 +647,8 @@ hr {
   border: none;
   height: 1px;
   background-color: rgba(239, 210, 107, 0.9);
-  margin: 0.5rem 0;  /* space above & below */
+  margin: 0.5rem 0;
+  /* space above & below */
   width: 100%;
   align-items: center;
 }
@@ -588,6 +667,7 @@ hr {
   font-family: 'Cormorant Garamond', serif;
   padding: 3rem 1rem 1rem;
 }
+
 .footer-cta {
   max-width: 1200px;
   margin: 0 auto;
@@ -595,11 +675,13 @@ hr {
   align-items: center;
   justify-content: space-between;
 }
+
 .footer-cta h2 {
   font-size: 2rem;
   margin: 0;
   padding-left: 2rem;
 }
+
 .btn-schedule {
   background: #EFD26B;
   color: #48494C;
@@ -609,12 +691,14 @@ hr {
   font-weight: bold;
   border-radius: 0.25rem;
 }
+
 .site-footer hr {
   border: 0;
-  border-top: 1px solid rgba(255,255,255,0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
   margin: 2rem auto;
   max-width: 1200px;
 }
+
 .footer-content {
   max-width: 1200px;
   margin: 0 auto;
@@ -622,6 +706,7 @@ hr {
   gap: 2rem;
   flex-wrap: wrap;
 }
+
 .footer-column {
   flex: 1;
   min-width: 250px;
@@ -632,35 +717,42 @@ hr {
   max-width: 150px;
   margin-bottom: 1rem;
 }
+
 .footer-info {
   display: flex;
   align-items: center;
   margin-bottom: 0.5rem;
 }
+
 .footer-info .icon {
   width: 1.25rem;
   height: 1.25rem;
   fill: #EFD26B;
   margin-right: 0.5rem;
 }
+
 .footer-info a,
 .footer-info span {
   color: #fff;
   font-size: 1rem;
   text-decoration: none;
 }
+
 .social {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   margin: 1rem 0;
 }
+
 .social span {
   font-size: 0.9rem;
 }
+
 .social a .icon.fab {
   fill: #fff;
 }
+
 .footer-map iframe {
   width: 100%;
   height: 200px;
@@ -677,11 +769,13 @@ hr {
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
+
 .footer-column.hours ul,
 .footer-column.links ul {
   list-style: none;
   padding: 0;
 }
+
 .footer-column.hours li,
 .footer-column.links li {
   margin-bottom: 0.5rem;
@@ -689,28 +783,34 @@ hr {
   justify-content: space-between;
   font-size: 0.95rem;
 }
+
 .footer-column.links a {
   color: #fff;
   text-decoration: none;
 }
+
 .footer-column.links a:hover {
   text-decoration: underline;
 }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+
   .footer-cta,
   .footer-content {
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
+
   .footer-cta {
     gap: 1rem;
   }
+
   .footer-column {
     min-width: auto;
   }
+
   .footer-map iframe {
     height: 150px;
   }
@@ -731,15 +831,18 @@ hr {
 /* overlay box */
 .contact-box {
   position: absolute;
-  top: 55%;                 /* vertical center */
-  left: 30%;                /* horizontal center */
+  top: 55%;
+  /* vertical center */
+  left: 30%;
+  /* horizontal center */
   transform: translate(-50%, -50%);
-  z-index: 2;               /* above the image but below navbar if navbar is z-index:3+ */
-  background-color: rgba(255,255,255,0.9);
+  z-index: 2;
+  /* above the image but below navbar if navbar is z-index:3+ */
+  background-color: rgba(255, 255, 255, 0.9);
   padding: 2rem;
   border-radius: 0.5rem;
   width: clamp(300px, 60%, 500px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   font-family: 'Cormorant Garamond', serif;
 }
 
@@ -812,6 +915,7 @@ hr {
   background-color: #faf9f2;
   text-align: center;
 }
+
 .services-section h2 {
   font-family: 'Cormorant Garamond', serif;
   font-size: 2.5rem;
@@ -833,20 +937,23 @@ hr {
   background: #f7f7f7;
   border-radius: 12px;
   border: 1px solid #ccc;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   transition: transform 0.3s;
 }
+
 .service-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
 }
+
 .service-icon {
   margin-bottom: 1rem;
 }
+
 .service-card h3 {
   font-family: 'Raleway', sans-serif;
   font-size: 1.25rem;
@@ -854,6 +961,57 @@ hr {
   color: #222;
   flex-grow: 1;
 }
+
+
+.service-card {
+  perspective: 1000px;
+  /* enable 3D space */
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+/* front & back faces */
+.card-face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  box-sizing: border-box;
+  padding: 1rem;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+}
+
+/* back is rotated away by default */
+.card-back {
+  transform: rotateY(180deg);
+}
+
+/* when flipped… */
+.service-card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* optional styling for the back button */
+.flip-back {
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  color: #C9AD6D;
+}
+
+
 .learn-more {
   font-family: 'Raleway', sans-serif;
   font-size: 1rem;
@@ -862,6 +1020,7 @@ hr {
   text-decoration: none;
   position: relative;
 }
+
 .learn-more::after {
   content: '';
   display: block;
@@ -871,45 +1030,115 @@ hr {
   transition: width 0.3s;
   margin-top: 4px;
 }
+
 .learn-more:hover::after {
   width: 100%;
 }
 
-/* collapse to single column on small screens */
-@media (max-width: 600px) {
+/* MOBILE: disable 3D flip, single‐column cards, show back face inline */
+@media (max-width: 768px) {
   .services-grid {
     grid-template-columns: 1fr;
   }
-  .services-section {
-    padding: 2rem 1rem;
+
+  .service-card {
+    width: 100%;
+    margin: 0 auto 1.5rem;
+    perspective: 1000px;
+  }
+
+  .card-inner {
+    width: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease;
+  }
+
+  .card-face {
+    backface-visibility: hidden;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .card-front,
+  .card-back {
+    display: block;
+  }
+
+  .card-front {
+    position: relative;
+  }
+
+  .card-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotateY(180deg);
+    width: 100%;
+  }
+
+  .service-card.flipped .card-inner {
+    transform: rotateY(180deg);
   }
 }
+
 
 
 
 /* wrap each learn-more + tooltip so we can position relative to the card */
+/* 1) wrapper around the “Learn more” link */
 .learn-wrap {
   position: relative;
 }
 
-/* hidden by default */
-.learn-wrap .tooltip {
+/* 2) the full-viewport bubble */
+/* remove the old centering */
+.tooltip {
+  position: fixed;
+  /* full-viewport positioning */
+  top: 0;
+  /* will be updated by JS */
+  left: 0;
+  /* spans from left edge */
+  width: 100vw;
+  /* full browser width */
+  max-width: none;
+  padding: 1.5rem;
+  background: white;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
   display: none;
-  position: absolute;
-  top: 100%;               /* just below the “LEARN MORE” link */
-  left: 50%;
-  transform: translateX(-50%);
-  width: clamp(200px, 40%, 300px);
-  background: #fff;
-  color: #333;
-  padding: 1rem;
-  border: 1px solid #888;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  z-index: 10;
+  /* hidden until JS shows it */
+  z-index: 9999;
 }
 
-/* show when JS adds .visible */
-.learn-wrap .tooltip.visible {
+/* close button styling */
+.tooltip .close-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+
+/* 3) when you want to show it */
+.tooltip.visible {
   display: block;
+}
+
+
+/* 4) the close “×” button inside the bubble */
+.tooltip .close-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #555;
 }
