@@ -41,6 +41,9 @@
                 <label for="email">Email</label>
                 <input type="email" id="email" name="from_email" required>
 
+                <label for="phone">phone</label>
+                <input type="phone" id="phone" name="from_phone" required>
+
                 <label for="message">Message</label>
                 <textarea id="message" name="message" rows="5" required></textarea>
 
@@ -184,29 +187,97 @@
     </script>
 
     <script>
-        document
-            .getElementById('contact-form')
-            .addEventListener('submit', function (e) {
-                e.preventDefault();
-                emailjs
-                    .sendForm(
-                        'service_0l24vwc',   // your Service ID
-                        'template_zg6b0yq',  // your Template ID
-                        this                 // the <form> element
-                    )
-                    .then(
-                        () => {
-                            // 1) clear all the form fields
-                            this.reset();
-                            // 2) let the user know it worked
-                            alert('Thanks! Your message was sent.');
-                        },
-                        err => {
-                            alert('Oops… something went wrong:\n' + JSON.stringify(err));
-                        }
-                    );
-            });
+       (function () {
+  const form = document.getElementById('contact-form');  // <-- match your form id
+  if (!form) return;
 
+  const btn = form.querySelector('button[type="submit"]');
+  const $ = (sel) => form.querySelector(sel);
+
+  const nameEl  = $('[name="from_name"], #name');
+  const emailEl = $('[name="from_email"], #email');
+  // accept either "phone" or "from_phone" as the field name
+  const phoneEl = $('[name="phone"], [name="from_phone"], #phone');
+
+  function showError(input, msg) {
+    if (!input) return;
+    input.classList.add('has-error');
+    let err = input.nextElementSibling;
+    if (!err || !err.classList.contains('field-error')) {
+      err = document.createElement('div');
+      err.className = 'field-error';
+      input.after(err);
+    }
+    err.textContent = msg;
+  }
+  function clearError(input) {
+    if (!input) return;
+    input.classList.remove('has-error');
+    const err = input.nextElementSibling;
+    if (err && err.classList.contains('field-error')) err.textContent = '';
+  }
+
+  function validate() {
+    let ok = true;
+    const name  = nameEl  ? nameEl.value.trim()  : '';
+    const email = emailEl ? emailEl.value.trim() : '';
+    const phone = phoneEl ? phoneEl.value.trim() : '';
+
+    [nameEl, emailEl, phoneEl].forEach(clearError);
+
+    if (nameEl && nameEl.hasAttribute('required') && !name) {
+      showError(nameEl, 'Please enter your name.');
+      ok = false;
+    }
+
+    // require at least one contact method
+    if (!email && !phone) {
+      if (emailEl) showError(emailEl, 'Provide email or phone.');
+      if (phoneEl) showError(phoneEl, 'Provide phone or email.');
+      ok = false;
+    }
+
+    if (email) {
+      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      if (!emailOk) { showError(emailEl, 'Enter a valid email.'); ok = false; }
+    }
+
+    if (phone) {
+      const digits = phone.replace(/\D/g, '');
+      if (digits.length < 10) { showError(phoneEl, 'Enter a valid phone (10+ digits).'); ok = false; }
+    }
+
+    if (nameEl)  nameEl.value  = name;
+    if (emailEl) emailEl.value = email;
+    if (phoneEl) phoneEl.value = phone;
+
+    return ok;
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!validate()) return;
+
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+
+    emailjs
+      .sendForm(
+        'service_0l24vwc',
+        'template_zg6b0yq',   // make sure this template has vars: from_name, from_email, message, (optional) phone
+        form
+      )
+      .then(() => {
+        form.reset();
+        alert('Thanks! Your message was sent.');
+      })
+      .catch(err => {
+        alert('Oops… something went wrong:\n' + (err?.text || JSON.stringify(err)));
+      })
+      .finally(() => {
+        if (btn) { btn.disabled = false; btn.textContent = 'Send Message'; }
+      });
+  });
+})();
 
         function updateImageHeightVariable() {
             const img = document.querySelector('.main-div img');
@@ -238,12 +309,13 @@
             navbar.classList.toggle('open');
         });
 
-        document.querySelector('.nav2').addEventListener('click', e => {
-            e.preventDefault();
-            document
-                .querySelector('.about-div')
-                .scrollIntoView({ behavior: 'smooth' });
-        });
+        const aboutLink = document.querySelector('.nav2');
+if (aboutLink && aboutLink.getAttribute('href') === '#about') {
+  aboutLink.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelector('.about-div')?.scrollIntoView({ behavior: 'smooth' });
+  });
+}
 
         function updateAboutOverlayPadding() {
             const pic = document.querySelector('.about-picture img');
