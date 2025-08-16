@@ -27,38 +27,41 @@
     <div class="main-div">
 
         <div class="navbar">
-            <img class="logo" src="./images/ONEDAY_DENTAL_f_01_resized.png" alt="Logo">
+            <a href="index.html" class="logo-link">
+                <img class="logo" src="./images/ONEDAY_DENTAL_f_01_resized.png" alt="Logo">
+            </a>
 
-            <!-- Calendar button -->
-            <a href="contact.html" class="calendar-button" aria-label="View calendar">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="rgb(72, 73, 76)"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v14a2 2 
+            <div class="nav-right">
+                <!-- Calendar button -->
+                <a href="contact.html" class="calendar-button" aria-label="View calendar">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="rgb(72, 73, 76)"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v14a2 2 
                0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zM5 20V9h14l.002 
                11H5z" />
-                </svg>
-            </a>
+                    </svg>
+                </a>
 
-            <!-- new phone button -->
-            <a href="tel:+1234567890" class="phone-button" aria-label="Call us">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="rgb(72, 73, 76)"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M6.62 10.79a15.534 15.534 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21 11.07 11.07 0 003.47.56 1 1 0 011 1v3.5a1 1 0 01-1 1A17.92 17.92 0 012 4a1 1 0 011-1h3.5a1 1 0 011 1 11.07 11.07 0 00.56 3.47 1 1 0 01-.21 1.11l-2.2 2.2z" />
-                </svg>
-            </a>
-            <!-- Hamburger toggle (hidden on desktop, shown on mobile) -->
-            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-
+                <!-- new phone button -->
+                <a href="tel:+1234567890" class="phone-button" aria-label="Call us">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="rgb(72, 73, 76)"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M6.62 10.79a15.534 15.534 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21 11.07 11.07 0 003.47.56 1 1 0 011 1v3.5a1 1 0 01-1 1A17.92 17.92 0 012 4a1 1 0 011-1h3.5a1 1 0 011 1 11.07 11.07 0 00.56 3.47 1 1 0 01-.21 1.11l-2.2 2.2z" />
+                    </svg>
+                </a>
+                <!-- Hamburger toggle (hidden on desktop, shown on mobile) -->
+                <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            </div>
             <!-- Nav links now live inside this wrapper -->
             <div class="menu">
                 <a class="nav1" href="index.html">Home</a>
-                <a class="nav2" href="#about.html">About</a>
-                <a class="nav3" href="#services">Services</a>
+                <a class="nav2" href="about.html">About</a>
+                <a class="nav3" href="index.html#services_card">Services</a>
                 <a class="nav4" href="contact.html">Contact</a>
             </div>
-
         </div>
+
 
 
         <div id="about" class="about-div">
@@ -99,15 +102,34 @@
             </div>
         </div>
 
+        <section id="reserve" class="lead-form-section">
+            <div class="lead-container">
+                <h2>Be Among the First to Experience OneDay Dental!</h2>
+                <p class="lead-text">
+                    Reserve your spot today — the first 100 patients receive a welcome gift!
+                </p>
+
+                <form id="reserve-form" class="lead-form" action="#" method="post" novalidate>
+                    <label class="sr-only" for="lf-name">Name</label>
+                    <input id="lf-name" name="from_name" type="text" placeholder="Name*" required>
+
+                    <label class="sr-only" for="lf-email">E‑Mail</label>
+                    <input id="lf-email" name="from_email" type="email" placeholder="E‑Mail*" required>
+
+                    <label class="sr-only" for="lf-phone">Phone Number</label>
+                    <input id="lf-phone" name="phone" type="tel" placeholder="Phone Number*" required>
+
+                    <button type="submit" class="btn-schedule btn-pill">Reserve Your Spot</button>
+                </form>
+
+                <p class="form-note" aria-live="polite" hidden></p>
+            </div>
+        </section>
 
         <br>
 
         <footer class="site-footer">
             <!-- 1) Call-to-action -->
-            <div class="footer-cta">
-                <h2>Contact Dr. Hwang now</h2>
-                <a href="contact.html" class="btn-schedule">Schedule an appointment</a>
-            </div>
 
             <hr>
 
@@ -186,6 +208,12 @@
         <!--div class="flying-text text4">Stay Connected</div-->
         <!--div class="flying-text text5">Thank You for Visiting</div-->
 
+        <!-- 1) EmailJS SDK (must load first) -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+        <!-- 2) Initialize EmailJS with your public key -->
+        <script type="text/javascript">
+            emailjs.init('nEFTFwROMhCpsjJrT'); //need to update this with any account changes - public key
+        </script>
 
 
         <script>
@@ -256,6 +284,115 @@
                 });
             });
 
+
+
+            (function () {
+                const form = document.getElementById('reserve-form');
+                if (!form) return;
+
+                const btn = form.querySelector('button[type="submit"]');
+
+                // helpers
+                const $ = (sel) => form.querySelector(sel);
+                const nameEl = $('[name="from_name"], [name="name"], #lf-name');
+                const emailEl = $('[name="from_email"], [name="email"], #lf-email');
+                const phoneEl = $('[name="phone"], #lf-phone');
+
+                function showError(input, msg) {
+                    if (!input) return;
+                    input.classList.add('has-error');
+                    let err = input.nextElementSibling;
+                    if (!err || !err.classList.contains('field-error')) {
+                        err = document.createElement('div');
+                        err.className = 'field-error';
+                        input.after(err);
+                    }
+                    err.textContent = msg;
+                }
+
+                function clearError(input) {
+                    if (!input) return;
+                    input.classList.remove('has-error');
+                    const err = input.nextElementSibling;
+                    if (err && err.classList.contains('field-error')) err.textContent = '';
+                }
+
+                function validate() {
+                    let ok = true;
+
+                    // trim values
+                    const name = nameEl ? nameEl.value.trim() : '';
+                    const email = emailEl ? emailEl.value.trim() : '';
+                    const phone = phoneEl ? phoneEl.value.trim() : '';
+
+                    // clear old errors
+                    [nameEl, emailEl, phoneEl].forEach(clearError);
+
+                    // require non-empty name if the field exists & is required in HTML
+                    if (nameEl && nameEl.hasAttribute('required') && name.length === 0) {
+                        showError(nameEl, 'Please enter your name.');
+                        ok = false;
+                    }
+
+                    // at least one contact method
+                    if (email.length === 0 && phone.length === 0) {
+                        if (emailEl) showError(emailEl, 'Provide email or phone.');
+                        if (phoneEl) showError(phoneEl, 'Provide phone or email.');
+                        ok = false;
+                    }
+
+                    // email format (only if provided)
+                    if (email.length) {
+                        const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+                        if (!emailOk) {
+                            showError(emailEl, 'Enter a valid email (e.g., name@example.com).');
+                            ok = false;
+                        }
+                    }
+
+                    // phone format (only if provided): allow (), spaces, -, +; need 10+ digits
+                    if (phone.length) {
+                        const digits = phone.replace(/\D/g, '');
+                        if (digits.length < 10) {
+                            showError(phoneEl, 'Enter a valid phone number (10+ digits).');
+                            ok = false;
+                        }
+                    }
+
+                    // write back trimmed values so EmailJS sends clean data
+                    if (nameEl) nameEl.value = name;
+                    if (emailEl) emailEl.value = email;
+                    if (phoneEl) phoneEl.value = phone;
+
+                    return ok;
+                }
+
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    if (!validate()) return;
+
+                    // disable button to prevent double submits
+                    if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+
+                    emailjs
+                        .sendForm(
+                            'service_0l24vwc',          // your Service ID
+                            'template_zg6b0yq',         // your Template ID (make sure vars match)
+                            form
+                        )
+                        .then(() => {
+                            form.reset();
+                            alert('Thanks! Your message was sent.');
+                        })
+                        .catch(err => {
+                            alert('Oops… something went wrong:\n' + (err?.text || JSON.stringify(err)));
+                        })
+                        .finally(() => {
+                            if (btn) { btn.disabled = false; btn.textContent = 'Reserve Your Spot'; }
+                        });
+                });
+            })();
         </script>
 
 
