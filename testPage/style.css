@@ -1438,3 +1438,15 @@ hr {
   }
   .footer-hours li { font-size: 0.95rem; }
 }
+
+
+
+.service-icon {
+  margin-top: 8px;  /* space above the logo */
+}
+
+.service-logo {
+  width: 50px;   /* adjust size as needed */
+  height: auto;
+  display: block;
+}
