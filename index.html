@@ -3,7 +3,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flying Text Over Image</title>
+    <title>OneDay Dental in Chantilly, VA</title>
 
 
 
@@ -12,11 +12,9 @@
     <link rel="stylesheet" href="style.css">
 
     <!-- in your <head> -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link
-  href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap"
-  rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
 
 
 
@@ -27,54 +25,90 @@
 <body>
 
     <div class="main-div">
-        <img src="./images/5Fh2fbB.gif" alt="Background Image">
+
+        <picture class="background-picture">
+            <!-- when viewport ≤768px, use the mobile‐optimized image -->
+            <source media="(max-width: 768px)" srcset="./images/background_main_2_mobile_plain.jpg">
+            <!-- default desktop background -->
+            <img src="./images/background_main_2_plain.jpg" alt="Background Image" class="hero-img">
+        </picture>
 
         <div class="navbar">
-            <img class="logo" src="./images/CnB_logo.png" alt="Logo">
+            <a href="index.html" class="logo-link">
+                <img class="logo" src="./images/ONEDAY_DENTAL_f_01_resized.png" alt="Logo">
+            </a>
 
-            <!-- Calendar button -->
-            <a href="#" class="calendar-button" aria-label="View calendar">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v14a2 2 
+            <div class="nav-right">
+                <!-- Calendar button -->
+                <a href="contact.html" class="calendar-button" aria-label="View calendar">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="rgb(72, 73, 76)"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v14a2 2 
                0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zM5 20V9h14l.002 
                11H5z" />
-                </svg>
-            </a>
+                    </svg>
+                </a>
 
-            <!-- new phone button -->
-            <a href="tel:+1234567890" class="phone-button" aria-label="Call us">
-                <svg viewBox="0 0 24 24" width="24" height="24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M6.62 10.79a15.534 15.534 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21 11.07 11.07 0 003.47.56 1 1 0 011 1v3.5a1 1 0 01-1 1A17.92 17.92 0 012 4a1 1 0 011-1h3.5a1 1 0 011 1 11.07 11.07 0 00.56 3.47 1 1 0 01-.21 1.11l-2.2 2.2z" />
-                </svg>
-            </a>
-            <!-- Hamburger toggle (hidden on desktop, shown on mobile) -->
-            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-
+                <!-- new phone button -->
+                <a href="tel:571-655-0880" class="phone-button" aria-label="Call us">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="rgb(72, 73, 76)"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M6.62 10.79a15.534 15.534 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21 11.07 11.07 0 003.47.56 1 1 0 011 1v3.5a1 1 0 01-1 1A17.92 17.92 0 012 4a1 1 0 011-1h3.5a1 1 0 011 1 11.07 11.07 0 00.56 3.47 1 1 0 01-.21 1.11l-2.2 2.2z" />
+                    </svg>
+                </a>
+                <!-- Hamburger toggle (hidden on desktop, shown on mobile) -->
+                <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            </div>
             <!-- Nav links now live inside this wrapper -->
             <div class="menu">
                 <a class="nav1" href="#">Home</a>
-                <a class="nav2" href="#">About</a>
-                <a class="nav3" href="#">Services</a>
-                <a class="nav4" href="#">Contact</a>
+                <a class="nav2" href="about.html">About</a>
+                <a class="nav3" href="#services_card">Services</a>
+                <a class="nav4" href="contact.html">Contact</a>
             </div>
         </div>
 
         <!-- Flying texts -->
-        <div class="flying-text text1">WELCOME TO THE</div>
-        <div class="flying-text text2">CIGAR AND BRANDY CLUB</div>
+        <div class="flying-text text1">WELCOME TO
+
+        </div>
+        <div class="flying-text text2">
+            <div class="text2-line1">
+                OneDay<img src="./images/ONEDAY_DENTAL_f_02_resize_logo.png" alt="Logo2">Dental
+            </div>
+            <div class="text2-line2">
+                Trusted Dentist in Chantilly, VA
+            </div>
+            <div class="text2-line3">
+                <i>for Implants, Family &amp; Cosmetic Dentistry</i>
+            </div>
+        </div>
+
+        <hr>
+        <hr>
     </div>
 
 
 
     <div class="main-bullets">
 
-        <h1>Luxury Cigars and Brandy from around the world</h1>
+        <h1> One Day<br> One Doctor<br> One Complete Solution! <br><br>
+        </h1>
         <div class="main-bullet1">
-            At the Cigar and Brandy Club, we provide comprehensive, modern care for your entire party—all in one
-            location.
+            <p><b>Looking for a trusted dentist in Chantilly, VA? <br>OneDay Dental offers implants, cosmetic dentistry,
+                    family care, and same-day emergency services in a comfortable setting.</b><br><br></p>
+            <p>At OneDay Dental, we offer a full spectrum of services—from essential treatments
+                like cavity fillings and gum disease therapy to crowns, bridges, root canal therapy, clear
+                aligner orthodontics, teeth whitening, wisdom tooth extractions, and advanced implant
+                procedures.</p><br>
+            <p>
+                This philosophy reflects our deep commitment to making dental care simple, seamless, and
+                stress-free. Whenever possible, we complete your treatment in a single visit—all under the
+                trusted, continuous care of one dedicated doctor who truly understands your needs.</p>
         </div>
-        <div class="main-bullet2">
+
+        <!--div class="main-bullet2">
             <ul>
                 <li><span style="font-weight: bold;">Services:</span> Our team of
                      experienced professionals are dedicated to helping 
@@ -86,12 +120,534 @@
                      committed to providing the highest quality cigars and 
                      Brandy to our clients.</li>
             </ul>
+        </div-->
+
+
+
+    </div>
+
+    <div class="about-div">
+        <picture class="about-picture">
+            <!-- mobile version when viewport ≤ 768px -->
+            <source media="(max-width: 768px)" srcset="./images/about_doctor_2.jpg">
+            <!-- default desktop image -->
+            <img src="./images/about_doctor_1.jpg" alt="about_doctor">
+        </picture>
+
+        <div class="about-overlay">
+            <h2>Meet Dr. Hwang</h2><br>
+            <p>
+                Dr. Hwang is a highly accomplished dentist with over 15 years of experience, bringing a
+                unique blend of expertise from both Korea and the United States. He is one of the rare
+                dental professionals to have successfully completed specialty training in both countries,
+                offering an unparalleled depth of knowledge and skill.<br><br>
+            </p><br>
+            <a href="about.html" class="btn-schedule">Learn More</a>
         </div>
     </div>
+
+    <div id="services" class="services-div">
+
+        <hr>
+        <hr>
+        <br>
+        <h2>Five Reasons Patients Trust OneDay Dental</h2><br>
+
+        <ol>
+            <li><span style="font-weight: bold;">One Day: Complete Care in a Single Visit </span>
+                We understand your time is valuable. That's why we specialize in <b>same-day extractions,
+                    implant placements, and prosthetic restorations</b>. Thanks to our advanced technology and
+                Dr. Hwang's expertise, many complex procedures that typically require multiple appointments
+                can now be completed in just one visit—so you can return to your daily life sooner.</li><br>
+            <li><span style="font-weight: bold;">One Stop: All Your Dental Needs Under One Roof </span>
+                From routine check-ups to advanced procedures, OneDay Dental offers a <b>full spectrum of
+                    services</b>. We provide everything from <b>fillings and teeth whitening to crowns, bridges,
+                    root canal therapy, clear aligner orthodontics, wisdom tooth extractions, and advanced
+                    implant treatments</b>. No need to see multiple specialists—we deliver comprehensive care in
+                one convenient location.</li><br>
+            <li><span style="font-weight: bold;">One Doctor: Consistent, Personalized Care with Dr. Hwang</span>
+                At many practices, you may see a different doctor at every visit. At OneDay Dental, <b>Dr. Hwang
+                    personally manages your care from start to finish</b>. His one-doctor approach ensures consistency,
+                accountability, and a deep understanding of your dental history and goals—resulting in a more
+                personalized and trustworthy experience.</li><br>
+            <li><span style="font-weight: bold;">One Solution: Tailored Treatment Plans for Exceptional Results </span>
+                We believe your care should be as unique as you are. Dr. Hwang takes the time to thoroughly assess
+                your needs, listen to your concerns, and present the most effective treatment options. The result?
+                <b>Customized solutions</b> that support long-term oral health and a confident smile.
+            </li><br>
+            <li><span style="font-weight: bold;">One Advanced Technology: State-of-the-Art Tools for Superior Care
+                </span>
+                OneDay Dental is equipped with <b>cutting-edge technology</b> to ensure precision, comfort, and
+                efficiency.
+                Our tools include <b>CBCT (Cone Beam CT)</b> for detailed 3D imaging, <b>3D printers</b> for surgical
+                guides and
+                models, <b>intraoral scanners</b> for accurate digital impressions, and <b>in-house milling machines</b>
+                for
+                same-day restorations. This commitment to innovation leads to better results—and a better
+                experience—for you.</li><br>
+        </ol>
+
+    </div>
+
+
+    <!-- Services Section (12 cards) -->
+    <!-- Services Section (12 cards) -->
+    <section id="services_card" class="services-section">
+        <h2>Our Dental Services</h2>
+        <div class="services-grid">
+            <!-- Row 1 -->
+
+            <article class="service-card">
+                <div class="card-inner">
+                    <!-- FRONT -->
+                    <div class="card-face card-front">
+
+                        <h3>IMPLANT DENTISTRY</h3>
+                        <a href="#" class="learn-more">LEARN MORE</a>
+                        <!-- logo under the CTA -->
+                        <div class="service-icon">
+                            <img src="./images/logo_service_card.png" alt="Implant Dentistry logo" class="service-logo"
+                                loading="lazy" decoding="async" />
+                        </div>
+                    </div>
+
+                    <!-- BACK -->
+                    <div class="card-face card-back">
+                        <button class="flip-back">← Back</button>
+                        <p>
+                            This treatment places an artificial tooth root into your jawbone to replace a missing tooth.
+                            It looks, feels, and functions like a natural tooth.
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="service-card">
+                <div class="card-inner">
+                    <!-- FRONT -->
+                    <div class="card-face card-front">
+
+                        <h3>WISDOM TOOTH EXTRACTIONS</h3>
+                        <a href="#" class="learn-more">LEARN MORE</a>
+                        <div class="service-icon">
+                            <img src="./images/logo_service_card.png" alt="Implant Dentistry logo" class="service-logo"
+                                loading="lazy" decoding="async" />
+                        </div>
+                    </div>
+
+                    <!-- BACK -->
+                    <div class="card-face card-back">
+                        <button class="flip-back">← Back</button>
+                        <p>
+                            We remove wisdom teeth (third molars) that are causing pain,
+                            infection, or crowding. Our office can handle even complex
+                            extractions comfortably.
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="service-card">
+                <div class="card-inner">
+                    <!-- FRONT -->
+                    <div class="card-face card-front">
+
+                        <h3>CLEAR ALIGNERS</h3>
+                        <a href="#" class="learn-more">LEARN MORE</a>
+                        <div class="service-icon">
+                            <img src="./images/logo_service_card.png" alt="Implant Dentistry logo" class="service-logo"
+                                loading="lazy" decoding="async" />
+                        </div>
+                    </div>
+
+                    <!-- BACK -->
+                    <div class="card-face card-back">
+                        <button class="flip-back">← Back</button>
+                        <p>
+                            A nearly invisible way to straighten your teeth using a series of clear, removable trays.
+                            They gradually move your teeth into the right position.
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+
+            <!-- Row 2 -->
+            <article class="service-card">
+                <div class="card-inner">
+                    <!-- FRONT -->
+                    <div class="card-face card-front">
+
+                        <h3>TMJ TREATMENT</h3>
+                        <a href="#" class="learn-more">LEARN MORE</a>
+                        <div class="service-icon">
+                            <img src="./images/logo_service_card.png" alt="Implant Dentistry logo" class="service-logo"
+                                loading="lazy" decoding="async" />
+                        </div>
+                    </div>
+
+                    <!-- BACK -->
+                    <div class="card-face card-back">
+                        <button class="flip-back">← Back</button>
+                        <p>
+                            We diagnose and treat problems with the jaw joint (TMJ), such as pain, clicking, or limited
+                            movement. Treatment may include a mouthguard, therapy, or medication.
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="service-card">
+                <div class="card-inner">
+                    <!-- FRONT -->
+                    <div class="card-face card-front">
+
+                        <h3>EMERGENCY DENTISTRY</h3>
+                        <a href="#" class="learn-more">LEARN MORE</a>
+                        <div class="service-icon">
+                            <img src="./images/logo_service_card.png" alt="Implant Dentistry logo" class="service-logo"
+                                loading="lazy" decoding="async" />
+                        </div>
+                    </div>
+
+                    <!-- BACK -->
+                    <div class="card-face card-back">
+                        <button class="flip-back">← Back</button>
+                        <p>
+                            We provide fast care for dental emergencies like toothaches, broken teeth, injuries, or gum
+                            bleeding. Our goal is quick relief and lasting solutions.
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="service-card">
+                <div class="card-inner">
+                    <!-- FRONT -->
+                    <div class="card-face card-front">
+
+                        <h3>ROOT CANAL THERAPY</h3>
+                        <a href="#" class="learn-more">LEARN MORE</a>
+                        <div class="service-icon">
+                            <img src="./images/logo_service_card.png" alt="Implant Dentistry logo" class="service-logo"
+                                loading="lazy" decoding="async" />
+                        </div>
+                    </div>
+
+                    <!-- BACK -->
+                    <div class="card-face card-back">
+                        <button class="flip-back">← Back</button>
+                        <p>
+                            A treatment to save a tooth when the nerve is infected or damaged. We clean, seal, and
+                            protect the tooth so you can keep it.
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Row 3 -->
+            <article class="service-card">
+                <div class="card-inner">
+                    <!-- FRONT -->
+                    <div class="card-face card-front">
+
+                        <h3>COSMETIC DENTISTRY</h3>
+                        <a href="#" class="learn-more">LEARN MORE</a>
+                        <div class="service-icon">
+                            <img src="./images/logo_service_card.png" alt="Implant Dentistry logo" class="service-logo"
+                                loading="lazy" decoding="async" />
+                        </div>
+                    </div>
+
+                    <!-- BACK -->
+                    <div class="card-face card-back">
+                        <button class="flip-back">← Back</button>
+                        <p>
+                            We help improve the look of your smile by fixing the color, shape, or alignment of your
+                            teeth. Services include whitening, veneers, and more.
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="service-card">
+                <div class="card-inner">
+                    <!-- FRONT -->
+                    <div class="card-face card-front">
+
+                        <h3>RESTORATIVE DENTISTRY</h3>
+                        <a href="#" class="learn-more">LEARN MORE</a>
+                        <div class="service-icon">
+                            <img src="./images/logo_service_card.png" alt="Implant Dentistry logo" class="service-logo"
+                                loading="lazy" decoding="async" />
+                        </div>
+                    </div>
+
+                    <!-- BACK -->
+                    <div class="card-face card-back">
+                        <button class="flip-back">← Back</button>
+                        <p>
+                            We repair teeth damaged by decay, cracks, or wear. Treatments include fillings, inlays, and
+                            onlays to restore strength and function.
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="service-card">
+                <div class="card-inner">
+                    <!-- FRONT -->
+                    <div class="card-face card-front">
+
+                        <h3>PREVENTATIVE DENTISTRY</h3>
+                        <a href="#" class="learn-more">LEARN MORE</a>
+                        <div class="service-icon">
+                            <img src="./images/logo_service_card.png" alt="Implant Dentistry logo" class="service-logo"
+                                loading="lazy" decoding="async" />
+                        </div>
+                    </div>
+
+                    <!-- BACK -->
+                    <div class="card-face card-back">
+                        <button class="flip-back">← Back</button>
+                        <p>
+                            We focus on keeping your mouth healthy and stopping problems before they start. This
+                            includes cleanings, check-ups, and fluoride treatments.
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Row 4 -->
+            <article class="service-card">
+                <div class="card-inner">
+                    <!-- FRONT -->
+                    <div class="card-face card-front">
+
+                        <h3>CROWNS & BRIDGES</h3>
+                        <a href="#" class="learn-more">LEARN MORE</a>
+                        <div class="service-icon">
+                            <img src="./images/logo_service_card.png" alt="Implant Dentistry logo" class="service-logo"
+                                loading="lazy" decoding="async" />
+                        </div>
+                    </div>
+
+                    <!-- BACK -->
+                    <div class="card-face card-back">
+                        <button class="flip-back">← Back</button>
+                        <p>
+                            Crowns cover and protect weak or broken teeth. Bridges fill the gap left by missing teeth
+                            using nearby teeth for support.
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="service-card">
+                <div class="card-inner">
+                    <!-- FRONT -->
+                    <div class="card-face card-front">
+
+                        <h3>DENTURES</h3>
+                        <a href="#" class="learn-more">LEARN MORE</a>
+                        <div class="service-icon">
+                            <img src="./images/logo_service_card.png" alt="Implant Dentistry logo" class="service-logo"
+                                loading="lazy" decoding="async" />
+                        </div>
+                    </div>
+
+                    <!-- BACK -->
+                    <div class="card-face card-back">
+                        <button class="flip-back">← Back</button>
+                        <p>
+                            Custom-made removable devices that replace several or all missing teeth. They help you chew,
+                            speak, and smile confidently.
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="service-card">
+                <div class="card-inner">
+                    <!-- FRONT -->
+                    <div class="card-face card-front">
+
+                        <h3>PERIODONTIC TREATMENT</h3>
+                        <a href="#" class="learn-more">LEARN MORE</a>
+                        <div class="service-icon">
+                            <img src="./images/logo_service_card.png" alt="Implant Dentistry logo" class="service-logo"
+                                loading="lazy" decoding="async" />
+                        </div>
+                    </div>
+
+                    <!-- BACK -->
+                    <div class="card-face card-back">
+                        <button class="flip-back">← Back</button>
+                        <p>
+                            We treat gum disease to stop infection and protect the bone that supports your teeth. This
+                            may include deep cleanings or gum surgery.
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+
+
+    <section id="reserve" class="lead-form-section">
+        <div class="lead-container">
+            <h2>Be Among the First to Experience OneDay Dental!</h2>
+            <p class="lead-text">
+                Reserve your spot today — the first 100 patients receive a welcome gift!
+            </p>
+
+            <form id="reserve-form" class="lead-form" action="#" method="post" novalidate>
+                <label class="sr-only" for="lf-name">Name</label>
+                <input id="lf-name" name="from_name" type="text" placeholder="Name*" required>
+
+                <label class="sr-only" for="lf-email">E‑Mail</label>
+                <input id="lf-email" name="from_email" type="email" placeholder="E‑Mail*" required>
+
+                <label class="sr-only" for="lf-phone">Phone Number</label>
+                <input id="lf-phone" name="from_phone" type="tel" placeholder="Phone Number*" required>
+
+                <button type="submit" class="btn-schedule btn-pill">Reserve Your Spot</button>
+            </form>
+
+            <p class="form-note" aria-live="polite" hidden></p>
+        </div>
+    </section>
+
+
+    <section id="insurance" class="services-div">
+        <div>
+            <h1>We Accept Most Insurances!</h1>
+            <br>
+            <p>We’ll be happy to check if your insurance is in-network—just contact us!</p>
+        </div>
+
+        <!-- Cross-link back to Membership -->
+        <div class="ins-cta">
+            <p>No insurance? We’ve got you covered—see our <b>In-House Membership Plan</b>.</p>
+            <br>
+            <a href="membershipplan.html" class="btn-outline">
+                Learn More About Our In-House Membership Plan
+            </a>
+        </div>
+    </section>
+    <br>
+    <br>
+    <br>
+
+    <footer class="site-footer">
+        <div class="footer-hero">
+            <div class="footer-grid">
+                <!-- Left: Big map -->
+                <div class="footer-map-large">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3106.0001215023085!2d-77.43845782358535!3d38.87823904783367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b6443aa9f2ddc1%3A0xf8db59fa8bbdb819!2s4530%20Walney%20Rd%2C%20Chantilly%2C%20VA%2020151!5e0!3m2!1sen!2sus!4v1751688114187!5m2!1sen!2sus"
+                        loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <!-- Right: Text panel -->
+                <aside class="footer-panel">
+                    <img src="./images/logo_nonT.jpg" alt="OneDay Dental" class="footer-logo-xl" />
+
+                    <h2 class="footer-title">Come Visit Us</h2>
+                    <p class="footer-sub">
+                        We can’t wait to welcome you to our practice in Chantilly, VA.
+                        Discover the difference a caring, patient-focused dental team can make.
+                    </p>
+
+                    <ul class="footer-info-list">
+                        <li>
+                            <svg viewBox="0 0 24 24" class="icon">
+                                <path
+                                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 .001-5.001A2.5 2.5 0 0 1 12 11.5z" />
+                            </svg>
+                            <a class="footer-link"
+                                href="https://maps.google.com/?q=4530+Walney+Rd+%23203,+Chantilly,+VA" target="_blank"
+                                rel="noopener">
+                                4530 Walney Rd. #203, Chantilly, VA 20151
+                            </a>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" class="icon">
+                                <path
+                                    d="M6.62 10.79a15.534 15.534 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21 11.07 11.07 0 003.47.56 1 1 0 011 1v3.5a1 1 0 01-1 1A17.92 17.92 0 012 4a1 1 0 011-1h3.5a1 1 0 011 1 11.07 11.07 0 00.56 3.47 1 1 0 01-.21 1.11l-2.2 2.2z" />
+                            </svg>
+                            <a class="footer-link" href="tel:5716550880">Call: 571-655-0880</a>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" class="icon">
+                                <path d="M20 2H4a2 2 0 00-2 2v12a2 2 0 002 2h5l3 3 3-3h5a2 2 0 002-2V4a2 2 0 00-2-2z" />
+                            </svg>
+                            <a class="footer-link" href="sms:5716550880">Text: 571-655-0880</a>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" class="icon">
+                                <path
+                                    d="M19 7V4a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v3H3v13h18V7h-2zm-10 9H7v-2h2v2zm0-4H7v-2h2v2zm0-4H7V6h2v2zm6 8h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V6h4v2z" />
+                            </svg>
+                            <span class="footer-link">Fax: 571-240-5305</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" class="icon">
+                                <path
+                                    d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                            </svg>
+                            <a class="footer-link" href="mailto:onedaydentalva@gmail.com">Email:
+                                onedaydentalva@gmail.com</a>
+                        </li>
+                    </ul>
+
+                    <div class="footer-social">
+                        <span>Stay Connected</span>
+                        <a href="#" aria-label="Facebook" class="social-btn">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 5 3.66 9.13 8.44 9.88v-7H7.9v-2.9h2.54V9.8c0-2.5 1.49-3.9 3.77-3.9 1.09 0 2.23.2 2.23.2v2.45H14.5c-1.26 0-1.65.78-1.65 1.57v1.88H16l-.41 2.9h-2.07v7C18.34 21.13 22 17 22 12z" />
+                            </svg>
+                        </a>
+                        <a href="#" aria-label="Instagram" class="social-btn">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10zm-5 3a5 5 0 1 0 .001 10.001A5 5 0 0 0 12 7zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm4.5-.5a1.5 1.5 0 1 1 0 3.001A1.5 1.5 0 0 1 16.5 8.5z" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="footer-hours">
+                        <h3>Hours</h3>
+                        <ul>
+                            <li><span>Monday:</span> 9:30 AM – 5:00 PM</li>
+                            <li><span>Tuesday:</span> 9:30 AM – 5:00 PM</li>
+                            <li><span>Wednesday:</span> 2:00 PM – 6:00 PM</li>
+                            <li><span>Thursday:</span> 9:30 AM – 5:00 PM</li>
+                            <li><span>Friday:</span> 9:30 AM – 5:00 PM</li>
+                            <li><span>Saturday:</span> 9:00 AM – 1:00 PM</li>
+                            <li> (By Appointment only)</li>
+                            <li><span>Sunday:</span> CLOSED</li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </footer>
+
+
     <!--div class="flying-text text4">Stay Connected</div-->
     <!--div class="flying-text text5">Thank You for Visiting</div-->
 
 
+
+    <!-- 1) EmailJS SDK (must load first) -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- 2) Initialize EmailJS with your public key -->
+    <script type="text/javascript">
+        emailjs.init('2gSaVNHT3HMzD7cD8'); //need to update this with any account changes - public key
+    </script>
 
     <script>
         function updateImageHeightVariable() {
@@ -124,7 +680,235 @@
             navbar.classList.toggle('open');
         });
 
+        document.querySelector('.nav2').addEventListener('click', e => {
+            e.preventDefault();
+            document
+                .querySelector('.about-div')
+                .scrollIntoView({ behavior: 'smooth' });
+        });
+
+        function updateAboutOverlayPadding() {
+            const pic = document.querySelector('.about-picture img');
+            const over = document.querySelector('.about-overlay');
+            const wrap = document.querySelector('.about-div');
+            if (!pic || !over || !wrap) return;
+
+            // get bottom‐edges relative to viewport
+            const picB = pic.getBoundingClientRect().bottom;
+            const overB = over.getBoundingClientRect().bottom;
+
+            // difference = overlay bottom goes this many px below picture bottom
+            const diff = Math.max(0, overB - picB);
+
+            // set CSS var on the wrapper (or on :root)
+            wrap.style.setProperty('--about-overlay-offset', diff + 'px');
+        }
+
+        // run once on load…
+        window.addEventListener('load', updateAboutOverlayPadding);
+        // …and again on resize
+        window.addEventListener('resize', updateAboutOverlayPadding);
+
+
+        // close the menu whenever *any* <a> in the mobile menu is clicked
+        document.querySelectorAll('.navbar .menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navbar.classList.remove('open');
+            });
+        });
+
+
+
+        // for every “learn more” link…
+        document.querySelectorAll('.learn-more').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const card = link.closest('.service-card');
+                card.classList.add('flipped');
+            });
+        });
+
+        // for every “back” button…
+        document.querySelectorAll('.flip-back').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const card = btn.closest('.service-card');
+                card.classList.remove('flipped');
+            });
+        });
+
+        function updateCardHeights() {
+            document.querySelectorAll('.service-card').forEach(card => {
+                const inner = card.querySelector('.card-inner');
+                const front = card.querySelector('.card-front');
+                const back = card.querySelector('.card-back');
+
+                // Show both sides for measurement
+                front.style.display = 'block';
+                back.style.display = 'block';
+
+                const activeFace = card.classList.contains('flipped') ? back : front;
+                const height = activeFace.offsetHeight;
+
+                // Hide the inactive one again
+                if (card.classList.contains('flipped')) front.style.display = 'none';
+                else back.style.display = 'none';
+
+                inner.style.height = height + 'px';
+            });
+        }
+
+        // Run it once on page load and on window resize
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCardHeights();
+            window.addEventListener('resize', updateCardHeights);
+        });
+
+        // Also trigger after flipping
+        document.querySelectorAll('.learn-more').forEach(btn => {
+            btn.addEventListener('click', e => {
+                const card = e.target.closest('.service-card');
+                card.classList.add('flipped');
+                updateCardHeights();
+            });
+        });
+        document.querySelectorAll('.flip-back').forEach(btn => {
+            btn.addEventListener('click', e => {
+                const card = e.target.closest('.service-card');
+                card.classList.remove('flipped');
+                updateCardHeights();
+            });
+        });
+
+
+
+
+        (function () {
+            const form = document.getElementById('reserve-form');
+            if (!form) return;
+
+            const btn = form.querySelector('button[type="submit"]');
+
+            // helpers
+            const $ = (sel) => form.querySelector(sel);
+            const nameEl = $('[name="from_name"], [name="name"], #lf-name');
+            const emailEl = $('[name="from_email"], [name="email"], #lf-email');
+            const phoneEl = $('[name="from_phone"], #lf-phone');
+
+            function showError(input, msg) {
+                if (!input) return;
+                input.classList.add('has-error');
+                let err = input.nextElementSibling;
+                if (!err || !err.classList.contains('field-error')) {
+                    err = document.createElement('div');
+                    err.className = 'field-error';
+                    input.after(err);
+                }
+                err.textContent = msg;
+            }
+
+            function clearError(input) {
+                if (!input) return;
+                input.classList.remove('has-error');
+                const err = input.nextElementSibling;
+                if (err && err.classList.contains('field-error')) err.textContent = '';
+            }
+
+            function validate() {
+                let ok = true;
+
+                // trim values
+                const name = nameEl ? nameEl.value.trim() : '';
+                const email = emailEl ? emailEl.value.trim() : '';
+                const phone = phoneEl ? phoneEl.value.trim() : '';
+
+                // clear old errors
+                [nameEl, emailEl, phoneEl].forEach(clearError);
+
+                // require non-empty name if the field exists & is required in HTML
+                if (nameEl && nameEl.hasAttribute('required') && name.length === 0) {
+                    showError(nameEl, 'Please enter your name.');
+                    ok = false;
+                }
+
+                // at least one contact method
+                if (email.length === 0 && phone.length === 0) {
+                    if (emailEl) showError(emailEl, 'Provide email or phone.');
+                    if (phoneEl) showError(phoneEl, 'Provide phone or email.');
+                    ok = false;
+                }
+
+                // email format (only if provided)
+                if (email.length) {
+                    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+                    if (!emailOk) {
+                        showError(emailEl, 'Enter a valid email (e.g., name@example.com).');
+                        ok = false;
+                    }
+                }
+
+                // phone format (only if provided): allow (), spaces, -, +; need 10+ digits
+                if (phone.length) {
+                    const digits = phone.replace(/\D/g, '');
+                    if (digits.length < 10) {
+                        showError(phoneEl, 'Enter a valid phone number (10+ digits).');
+                        ok = false;
+                    }
+                }
+
+                // write back trimmed values so EmailJS sends clean data
+                if (nameEl) nameEl.value = name;
+                if (emailEl) emailEl.value = email;
+                if (phoneEl) phoneEl.value = phone;
+
+                return ok;
+            }
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                if (!validate()) return;
+
+                if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+
+                // 1) Send to clinic/admin (your existing service & template)
+                emailjs
+                    .sendForm('service_jv0vco5', 'template_ia3w86r', form)
+                    .then(() => {
+                        // 2) Auto-reply to the visitor (second email)
+                        const email = emailEl ? emailEl.value.trim() : '';
+                        const name = nameEl ? (nameEl.value || '').trim() : '';
+
+                        if (!email) return; // no visitor email → skip
+
+                        // Make sure your auto-reply template's "To" is {{to_email}} (or change key to from_email)
+                        return emailjs.send(
+                            'service_jv0vco5',       // same service unless you created another one
+                            'template_vb2kmaj',      // your AUTO-REPLY template ID
+                            {
+                                to_email: email,       // or: from_email: email  (match your template variable)
+                                to_name: name || 'there',
+                                clinic_name: 'OneDay Dental',
+                                clinic_reply_to: 'onedaydentalva@gmail.com' // optional if your template uses it
+                            }
+                        );
+                    })
+                    .then(() => {
+                        form.reset();
+                        alert('Thanks! Your message was sent.');
+                    })
+                    .catch(err => {
+                        alert('Oops… something went wrong:\n' + (err?.text || JSON.stringify(err)));
+                    })
+                    .finally(() => {
+                        if (btn) { btn.disabled = false; btn.textContent = 'Reserve Your Spot'; }
+                    });
+            });
+
+
+        })();
+
     </script>
+
+
 </body>
 
 </html>
