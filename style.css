@@ -1622,3 +1622,19 @@ html { scroll-behavior: smooth; }
 .consent-label input { margin-top: 0.2rem; }
 .consent-note { display: block; margin-left: 1.5rem; color: #666; opacity: 0.9; }
 
+.navbar{
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;   /* was likely space-between */
+}
+
+.navbar .nav-right{
+  margin-left:auto;             /* pushes calendar/phone/hamburger to the right */
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+/* small gap between logo and KR chip (and the Plan chip if you add it) */
+.logo-link + .logo-split-link{ margin-left:3px; }
+.logo-split-link + .logo-split-link{ margin-left:3px; }
