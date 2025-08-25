@@ -37,13 +37,13 @@
             <a href="index.html" class="logo-link">
                 <img class="logo" src="./images/ONEDAY_DENTAL_f_01_resized.png" alt="Logo">
             </a>
-            
-<!-- existing KR chip -->
-  <a class="logo-split-link" href="https://seoulgangnamplan.cafe24.com" aria-label="View site in Korean">
 
-    <span class="divider">|</span>
-    <span class="abbr">KR</span>
-  </a>
+            <!-- existing KR chip -->
+            <a class="logo-split-link" href="https://seoulgangnamplan.cafe24.com" aria-label="View site in Korean">
+
+                <!--span class="divider">|</span-->
+                <span class="abbr">KR</span>
+            </a>
 
             <div class="nav-right">
                 <!-- Calendar button -->
@@ -506,7 +506,7 @@
         <div class="lead-container">
             <h2>Be Among the First to Experience OneDay Dental!</h2>
             <p class="lead-text">
-                Reserve your spot today — the first 100 patients receive a welcome gift!
+                Prefer a call? Share your details and we’ll reach out promptly—You can also book online anytime.
             </p>
 
             <form id="reserve-form" class="lead-form" action="#" method="post" novalidate>
@@ -519,7 +519,10 @@
                 <label class="sr-only" for="lf-phone">Phone Number</label>
                 <input id="lf-phone" name="from_phone" type="tel" placeholder="Phone Number*" required>
 
-                <button type="submit" class="btn-schedule btn-pill">Reserve Your Spot</button>
+                <button type="submit" class="btn-schedule btn-pill">Request a Callback or Email</button>
+                <a href="https://patient.portal.archy.com/p/ee8a3533-e23d-466f-ac6f-533f629786ec/self-booking" class="btn-schedule btn-pill">
+                    Book your appointment online
+                </a>
             </form>
 
             <p class="form-note" aria-live="polite" hidden></p>
@@ -906,7 +909,7 @@
                         alert('Oops… something went wrong:\n' + (err?.text || JSON.stringify(err)));
                     })
                     .finally(() => {
-                        if (btn) { btn.disabled = false; btn.textContent = 'Reserve Your Spot'; }
+                        if (btn) { btn.disabled = false; btn.textContent = 'Request a Callback or Email'; }
                     });
             });
 

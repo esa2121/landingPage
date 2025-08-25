@@ -1638,3 +1638,13 @@ html { scroll-behavior: smooth; }
 /* small gap between logo and KR chip (and the Plan chip if you add it) */
 .logo-link + .logo-split-link{ margin-left:3px; }
 .logo-split-link + .logo-split-link{ margin-left:3px; }
+
+.abbr{
+  font-size:1.7em;
+}
+
+.btn-center {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
