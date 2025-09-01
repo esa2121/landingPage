@@ -520,7 +520,8 @@
                 <input id="lf-phone" name="from_phone" type="tel" placeholder="Phone Number*" required>
 
                 <button type="submit" class="btn-schedule btn-pill">Request a Callback or Email</button>
-                <a href="https://patient.portal.archy.com/p/ee8a3533-e23d-466f-ac6f-533f629786ec/self-booking" class="btn-schedule btn-pill">
+                <a href="https://patient.portal.archy.com/p/ee8a3533-e23d-466f-ac6f-533f629786ec/self-booking"
+                    class="btn-schedule btn-pill">
                     Book your appointment online
                 </a>
             </form>
@@ -657,6 +658,16 @@
     <!-- 2) Initialize EmailJS with your public key -->
     <script type="text/javascript">
         emailjs.init('2gSaVNHT3HMzD7cD8'); //need to update this with any account changes - public key
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17513585627"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'AW-17513585627');
     </script>
 
     <script>
