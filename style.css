@@ -4,7 +4,7 @@
   /* set via JS */
   --landing-ratio1: 0.15;
   /* where text1 lands (25% down) */
-  --landing-ratio2: 0.15;
+  --landing-ratio2: 0.25;
   /* where text2 lands (35% down) */
   --landing-ratio3: 0.15;
   /* where text3 lands (15% down) */
