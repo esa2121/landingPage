@@ -35,10 +35,7 @@
     <div class="main-div">
 
         <picture class="background-picture">
-            <!-- when viewport ≤768px, use the mobile‐optimized image -->
-            <source media="(max-width: 768px)" srcset="./images/background_main_2_mobile_plain.jpg">
-            <!-- default desktop background -->
-            <img src="./images/background_main_2_plain.jpg" alt="Background Image" class="hero-img">
+            <img id="hero-slideshow" src="./images/20250909_175016_resized.jpg" alt="Background Image" class="hero-img">
         </picture>
 
         <div class="navbar">
@@ -85,7 +82,7 @@
         </div>
 
         <!-- Flying texts -->
-        <div class="flying-text text1">WELCOME TO
+        <div class="flying-text text1">
 
         </div>
         <div class="flying-text text2">
@@ -93,6 +90,7 @@
                 OneDay<img src="./images/ONEDAY_DENTAL_f_02_resize_logo.png" alt="Logo2">Dental
             </div>
             <div class="text2-line2">
+                <br><br><br><br>
                 Trusted Dentist in Chantilly, VA
             </div>
             <div class="text2-line3">
@@ -100,8 +98,6 @@
             </div>
         </div>
 
-        <hr>
-        <hr>
     </div>
 
 
@@ -928,6 +924,31 @@
 
         })();
 
+        setInterval(() => {
+            heroImg.classList.add("fade");
+            setTimeout(() => {
+                currentIndex = (currentIndex + 1) % heroImages.length;
+                heroImg.src = heroImages[currentIndex];
+                heroImg.classList.remove("fade");
+            }, 1000); // match transition duration
+        }, 5000);
+
+
+        // Array of images for the slideshow
+        const heroImages = [
+            "./images/20250909_175016_resized.jpg",
+            "./images/20250909_174957_resized.jpg",
+            "./images/20250909_175057_resized.jpg",
+            "./images/20250909_175127_resized.jpg",
+            "./images/20250909_174925_resized.jpg",
+            "./images/20250909_175036_resized.jpg",
+            "./images/20250909_175027_resized.jpg"
+        ];
+
+        let currentIndex = 0;
+        const heroImg = document.getElementById("hero-slideshow");
+
+       
     </script>
 
 
