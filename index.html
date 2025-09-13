@@ -913,6 +913,9 @@
                     .then(() => {
                         form.reset();
                         alert('Thanks! Your message was sent.');
+                        setTimeout(() => {
+                            window.location.href = "postContact.html";
+                        }, 500); // redirect after half a second
                     })
                     .catch(err => {
                         alert('Oops… something went wrong:\n' + (err?.text || JSON.stringify(err)));

@@ -16,10 +16,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
 
-
-
-
-
 </head>
 
 <body>
@@ -32,30 +28,15 @@
 
         <!-- ── YOUR NEW OVERLAY BOX ── -->
         <div class="contact-box">
-            <h2>Get in Touch with Our Team</h2>
-            <form id="contact-form">
-                <label for="name">Name</label>
-                <!-- name must match your template’s variable -->
-                <input type="text" id="name" name="from_name" required>
+            <h2>We appreciate you contacting us. Someone from our team will follow up with you as soon as possible.</h2>
 
-                <label for="email">Email</label>
-                <input type="email" id="email" name="from_email" required>
-
-                <label for="phone">phone</label>
-                <input type="phone" id="phone" name="from_phone" required>
-
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-
-                <button type="submit">Send Message</button>
-                <div class="btn-center">
-                    <a href="https://patient.portal.archy.com/p/ee8a3533-e23d-466f-ac6f-533f629786ec/self-booking"
-                        class="btn-schedule btn-pill">
-                        Book your appointment online
-                    </a>
-                </div>
-            </form>
-
+            <!-- Cross-link back to Membership -->
+            <div class="ins-cta">
+                <br>
+                <a href="index.html" class="btn-outline">
+                    Return to the Main Page
+                </a>
+            </div>
         </div>
 
 
@@ -310,9 +291,6 @@
                     .then(() => {
                         form.reset();
                         alert('Thanks! Your message was sent.');
-                        setTimeout(() => {
-                            window.location.href = "postContact.html";
-                        }, 500); // redirect after half a second
                     })
                     .catch(err => {
                         alert('Oops… something went wrong:\n' + (err?.text || JSON.stringify(err)));
