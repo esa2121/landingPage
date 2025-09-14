@@ -4,9 +4,9 @@
   /* set via JS */
   --landing-ratio1: 0.15;
   /* where text1 lands (25% down) */
-  --landing-ratio2: 0.25;
+  --landing-ratio2: 0.85;
   /* where text2 lands (35% down) */
-  --landing-ratio3: 0.15;
+  --landing-ratio3: 0.35;
   /* where text3 lands (15% down) */
 
   /* Font sizing relative to hero height */
@@ -114,14 +114,16 @@ img {
 
 /* Add an overlay on top of the image but under the text */
 .main-div::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.15); /* adjust opacity */
-    z-index: 1; /* sits above image, below text */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.15);
+  /* adjust opacity */
+  z-index: 1;
+  /* sits above image, below text */
 }
 
 
@@ -170,8 +172,9 @@ img {
   color: rgb(72, 73, 76);
   text-decoration: none;
   padding: 10px;
-   /*font-weight: bold;*/
-  font-family: 'Raleway', sans-serif; /* or Cormorant Garamond if you changed */
+  /*font-weight: bold;*/
+  font-family: 'Raleway', sans-serif;
+  /* or Cormorant Garamond if you changed */
 }
 
 .navbar a:hover {
@@ -256,8 +259,8 @@ img {
   font-size: calc(var(--img-height) * var(--font-ratio2));
   white-space: nowrap;
   /* prevent wrapping in that first line */
- /* color: rgb(255, 203, 16);*/
-    color: rgb(255, 255, 255);
+  /* color: rgb(255, 203, 16);*/
+  color: rgb(255, 255, 255);
 }
 
 /* Second line: subtitle */
@@ -386,12 +389,17 @@ img {
 @media only screen and (max-width: 768px) {
   :root {
     --img-ratio3: 0.20;
+    --landing-ratio1: 0.33;
+    --landing-ratio2: 0.75;
+    --landing-ratio3: 0.25;
   }
+
 
   .navbar {
     justify-content: space-between;
     padding: 1px 0.1rem;
-    margin-bottom: 20px; /* creates space below navbar */
+    margin-bottom: 20px;
+    /* creates space below navbar */
   }
 
   .navbar .menu-toggle,
@@ -1335,10 +1343,12 @@ hr {
 
 /* ======= New “hero” footer layout (keeps your colors) ======= */
 .site-footer {
-  background: #575756; /* keep existing theme */
+  background: #575756;
+  /* keep existing theme */
   color: #fff;
   font-family: 'Cormorant Garamond', serif;
-  padding: 0; /* handled by .footer-hero */
+  padding: 0;
+  /* handled by .footer-hero */
 }
 
 .footer-hero {
@@ -1349,7 +1359,8 @@ hr {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr; /* big map left */
+  grid-template-columns: 1.2fr 1fr;
+  /* big map left */
   gap: 2rem;
   align-items: start;
 }
@@ -1393,24 +1404,32 @@ hr {
   padding: 0;
   margin: 0.25rem 0 0.5rem;
 }
+
 .footer-info-list li {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   margin: 0.35rem 0;
 }
+
 .footer-info-list .icon {
   width: 20px;
   height: 20px;
-  fill: #EFD26B; /* your gold */
+  fill: #EFD26B;
+  /* your gold */
   flex: 0 0 20px;
 }
+
 .footer-link {
   color: #fff;
   text-decoration: none;
-  border-bottom: 1px dotted rgba(255,255,255,0.35);
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.35);
 }
-.footer-link:hover { border-bottom-color: #EFD26B; color: #fff; }
+
+.footer-link:hover {
+  border-bottom-color: #EFD26B;
+  color: #fff;
+}
 
 /* Social */
 .footer-social {
@@ -1420,10 +1439,16 @@ hr {
   margin: 0.5rem 0 0.75rem;
   font-family: 'Raleway', sans-serif;
 }
+
 .social-btn svg {
-  width: 20px; height: 20px; fill: #fff;
+  width: 20px;
+  height: 20px;
+  fill: #fff;
 }
-.social-btn:hover svg { fill: #EFD26B; }
+
+.social-btn:hover svg {
+  fill: #EFD26B;
+}
 
 /* Hours */
 .footer-hours h3 {
@@ -1432,36 +1457,51 @@ hr {
   margin: 0.5rem 0;
   text-transform: uppercase;
 }
+
 .footer-hours ul {
-  list-style: none; padding: 0; margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
   font-family: 'Raleway', sans-serif;
 }
+
 .footer-hours li {
-  display: flex; justify-content: space-between;
-  gap: 1rem; margin: 0.25rem 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0.25rem 0;
   font-size: 0.98rem;
 }
-.footer-hours li span { opacity: 0.95; }
+
+.footer-hours li span {
+  opacity: 0.95;
+}
 
 /* Responsive: stack on small screens */
 @media (max-width: 900px) {
   .footer-grid {
     grid-template-columns: 1fr;
   }
+
   .footer-map-large iframe {
     height: 360px;
   }
-  .footer-hours li { font-size: 0.95rem; }
+
+  .footer-hours li {
+    font-size: 0.95rem;
+  }
 }
 
 
 
 .service-icon {
-  margin-top: 8px;  /* space above the logo */
+  margin-top: 8px;
+  /* space above the logo */
 }
 
 .service-logo {
-  width: 50px;   /* adjust size as needed */
+  width: 50px;
+  /* adjust size as needed */
   height: auto;
   display: block;
 }
@@ -1566,8 +1606,13 @@ hr {
 }
 
 /* hide all panels by default; show only the active one */
-.membership-plan .tab-content { display: none; }
-.membership-plan .tab-content.active { display: block; }
+.membership-plan .tab-content {
+  display: none;
+}
+
+.membership-plan .tab-content.active {
+  display: block;
+}
 
 
 /* Program Terms inside the plan box */
@@ -1575,7 +1620,8 @@ hr {
   margin-top: 1.5rem;
   padding: 1rem;
   background: #f9f9f9;
-  border-left: 4px solid #EFD26B; /* matches your gold */
+  border-left: 4px solid #EFD26B;
+  /* matches your gold */
   font-size: 0.95rem;
   line-height: 1.4;
   border-radius: 4px;
@@ -1599,63 +1645,109 @@ hr {
 
 /* Override check marks for Program Terms */
 .program-terms ul {
-  list-style: disc;      /* normal filled bullets */
-  padding-left: 1.5rem;  /* space for bullets */
+  list-style: disc;
+  /* normal filled bullets */
+  padding-left: 1.5rem;
+  /* space for bullets */
 }
 
 .program-terms ul li {
-  position: static;      /* reset positioning */
-  padding-left: 0;       /* no extra left padding */
+  position: static;
+  /* reset positioning */
+  padding-left: 0;
+  /* no extra left padding */
 }
 
 .program-terms ul li::before {
-  content: none;         /* remove the checkmark */
+  content: none;
+  /* remove the checkmark */
 }
 
 
 /* Buttons */
-.btn-outline{
-  display:inline-block;
-  padding:.65rem 1.2rem;
-  border:5px solid #EFD26B;
-  border-radius:6px;
-  text-decoration:none;
-  color:#333;
-  transition:background .25s ease, color .25s ease, border-color .25s ease;
+.btn-outline {
+  display: inline-block;
+  padding: .65rem 1.2rem;
+  border: 5px solid #EFD26B;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #333;
+  transition: background .25s ease, color .25s ease, border-color .25s ease;
 }
-.btn-outline:hover{ background:#EFD26B; color:#333; }
+
+.btn-outline:hover {
+  background: #EFD26B;
+  color: #333;
+}
 
 /* Placement */
-.plan-cta, .ins-cta { margin-top: 1rem; text-align:center; }
-
-/* Smooth anchor jump + offset for sticky header */
-html { scroll-behavior: smooth; }
-#insurance, #membership { scroll-margin-top: 90px; } /* adjust to your fixed header height */
-
-.consent-row { margin-top: 0.75rem; }
-.consent-label { font-size: 0.95rem; color: #555; display: flex; gap: 0.5rem; align-items: flex-start; }
-.consent-label input { margin-top: 0.2rem; }
-.consent-note { display: block; margin-left: 1.5rem; color: #666; opacity: 0.9; }
-
-.navbar{
-  display:flex;
-  align-items:center;
-  justify-content:flex-start;   /* was likely space-between */
+.plan-cta,
+.ins-cta {
+  margin-top: 1rem;
+  text-align: center;
 }
 
-.navbar .nav-right{
-  margin-left:auto;             /* pushes calendar/phone/hamburger to the right */
-  display:flex;
-  align-items:center;
-  gap:10px;
+/* Smooth anchor jump + offset for sticky header */
+html {
+  scroll-behavior: smooth;
+}
+
+#insurance,
+#membership {
+  scroll-margin-top: 90px;
+}
+
+/* adjust to your fixed header height */
+
+.consent-row {
+  margin-top: 0.75rem;
+}
+
+.consent-label {
+  font-size: 0.95rem;
+  color: #555;
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.consent-label input {
+  margin-top: 0.2rem;
+}
+
+.consent-note {
+  display: block;
+  margin-left: 1.5rem;
+  color: #666;
+  opacity: 0.9;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* was likely space-between */
+}
+
+.navbar .nav-right {
+  margin-left: auto;
+  /* pushes calendar/phone/hamburger to the right */
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 /* small gap between logo and KR chip (and the Plan chip if you add it) */
-.logo-link + .logo-split-link{ margin-left:3px; }
-.logo-split-link + .logo-split-link{ margin-left:3px; }
+.logo-link+.logo-split-link {
+  margin-left: 3px;
+}
 
-.abbr{
-  font-size:1.7em;
+.logo-split-link+.logo-split-link {
+  margin-left: 3px;
+}
+
+.abbr {
+  font-size: 1.7em;
 }
 
 .btn-center {
