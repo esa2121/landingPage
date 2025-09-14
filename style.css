@@ -373,7 +373,7 @@ img {
   font-size: 2rem;
   color: rgb(72, 73, 76);
   cursor: pointer;
-  padding: 0 1rem;
+  padding: 0 .5rem;
 }
 
 .navbar .menu {
