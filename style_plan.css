@@ -1,0 +1,1650 @@
+:root {
+  /* Hero image & animation ratios */
+  --img-height: 0px;
+  /* set via JS */
+  --landing-ratio1: 0.22;
+  /* where text1 lands (25% down) */
+  --landing-ratio2: 0.3;
+  /* where text2 lands (35% down) */
+  --landing-ratio3: 0.15;
+  /* where text3 lands (15% down) */
+
+  /* Font sizing relative to hero height */
+  --font-ratio1: 0.075;
+  /* 8.5% of viewport width */
+  --font-ratio2: 0.095;
+  /* text2 size = 9.5% of image height */
+  --font-ratio_navbar: 0.05;
+  /* navbar font size */
+  --font-ratio_navbarH: 0.05;
+  /* navbar logo height */
+
+  /* Logo2 sizing relative to hero height */
+  --img-ratio3: 0.20;
+  /* Logo2 height = 10% of image height */
+
+  --about-overlay-offset: 0px;
+  /* will be overridden by JS */
+}
+
+/* 1) new vw‐based vars */
+:root {
+  /* font‐sizes as % of viewport-width */
+  --font-vw-nav: clamp(14px, 2vw, 25px);
+  /* old: var(--font-ratio_navbar) × img-height */
+  --logo-h-vw: clamp(28px, 4vw, 54px);
+  /* old: var(--font-ratio_navbarH) × img-height */
+  --font-vw1: 8.5vw;
+  /* old text1 */
+  --font-vw2: 9.5vw;
+  /* old text2 */
+}
+
+/* 2) navbar */
+.navbar {
+  font-size: var(--font-vw-nav);
+  /* …other rules… */
+}
+
+.navbar .logo {
+  height: var(--logo-h-vw);
+}
+
+/* 3) flying texts */
+.text1 {
+  font-size: var(--font-vw1);
+  /* transform: …same landing ratios… */
+}
+
+.text2 {
+  font-size: var(--font-vw2);
+  /* … */
+}
+
+/* 4) (optional) add clamps to keep them from getting too big/tiny */
+.text1 {
+  font-size: clamp(1rem, var(--font-vw1), 4rem);
+}
+
+.text2 {
+  font-size: clamp(1rem, var(--font-vw2), 5rem);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Cormorant Garamond', serif;
+  background-color: #EFEFEF;
+  /* bottom part stays white */
+
+  background-repeat: no-repeat;
+  background-size: 100% var(--img-height);
+  /* full width, hero-height tall */
+  background-position: top left;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* 1) Make the hero container span the viewport and get a bg color */
+.main-div {
+  position: relative;
+  width: 100%;
+
+  overflow: hidden;
+  /* keep any absolutely positioned text inside */
+}
+
+/* 2) Center your fixed-width image inside that full-width container */
+img {
+  display: block;
+  width: 1200px;
+  /* whatever your design width is */
+  max-width: 100%;
+  /* will shrink on narrower screens */
+  margin: 0 auto;
+  /* centers the image horizontally */
+  height: auto;
+}
+
+
+/* After */
+.background-picture,
+.background-picture img {
+  display: block;
+  width: 1200px;
+  /* or your desired design width */
+  max-width: 100%;
+  margin: 0 auto;
+  height: auto;
+}
+
+.main-div,
+.main-bullets {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(239, 210, 107, 0.9);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 5px 0;
+  z-index: 1000;
+
+}
+
+.navbar .logo {
+
+  width: auto;
+  margin-left: 30px;
+  margin-right: auto;
+}
+
+.navbar a {
+  color: rgb(72, 73, 76);
+  text-decoration: none;
+  padding: 10px;
+   /*font-weight: bold;*/
+  font-family: 'Raleway', sans-serif; /* or Cormorant Garamond if you changed */
+}
+
+.navbar a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+.navbar a.nav1 {
+  margin-right: 20px;
+}
+
+.navbar a.nav2 {
+  margin-right: 20px;
+}
+
+.navbar a.nav3 {
+  margin-right: 20px;
+}
+
+.navbar a.nav4 {
+  margin-right: 50px;
+}
+
+/* Flying text blocks: true center + downward offset */
+.flying-text {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  /* center anchor */
+  width: 100%;
+  /* span the full width */
+  transform: translate(-50%, var(--img-height));
+  text-align: center;
+  font-weight: bold;
+  color: rgb(72, 73, 76);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* hide by default */
+.text1,
+.text2 {
+  opacity: 0;
+  /* ensure the “from” keyframe applies before and the “to” after */
+  animation-fill-mode: both;
+}
+
+/* TEXT 1 */
+.text1 {
+  animation: flyStop1 3s ease-out forwards;
+  animation-delay: 1s;
+  font-size: calc(var(--img-height) * var(--font-ratio1));
+  transform: translate(-50%,
+      calc(var(--img-height) * var(--landing-ratio1)));
+}
+
+/* TEXT 2 + Logo2 container */
+.text2 {
+  animation: flyStop2 3s ease-out forwards;
+  animation-delay: 1.5s;
+  font-size: calc(var(--img-height) * var(--font-ratio2));
+  transform: translate(-50%,
+      calc(var(--img-height) * var(--landing-ratio2)));
+}
+
+.flying-text.text2 {
+  /* stack the three “lines” vertically and center them */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  /* space between each line */
+  text-align: center;
+}
+
+/* First line: keep the logo inline with the text */
+.flying-text.text2 .text2-line1 {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  /* tweak the gap between “OneDay”, the <img>, and “Dental” */
+  font-size: calc(var(--img-height) * var(--font-ratio2));
+  white-space: nowrap;
+  /* prevent wrapping in that first line */
+  color: rgb(255, 203, 16);
+}
+
+/* Second line: subtitle */
+.flying-text.text2 .text2-line2 {
+  font-size: calc(var(--img-height) * 0.045);
+  /* ~3.5% of hero height */
+}
+
+/* Third line: italicized note */
+.flying-text.text2 .text2-line3 {
+  font-size: calc(var(--img-height) * 0.045);
+  /* ~2.5% of hero height */
+}
+
+/* Size Logo2 inside text2 */
+.text2 img {
+  display: block;
+  margin: 60px auto;
+  height: calc(var(--img-height) * var(--img-ratio3));
+  width: auto;
+}
+
+/* Keyframes */
+@keyframes flyStop1 {
+  from {
+    transform: translate(-50%, calc(var(--img-height) * var(--landing-ratio1)));
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(-50%, calc(var(--img-height) * var(--landing-ratio1)));
+    opacity: 1;
+  }
+}
+
+@keyframes flyStop2 {
+  from {
+    transform: translate(-50%, calc(var(--img-height) * var(--landing-ratio2)));
+    opacity: 0;
+  }
+
+  to {
+    transform: translate(-50%, calc(var(--img-height) * var(--landing-ratio2)));
+    opacity: 1;
+  }
+}
+
+/* Optional pop-in text */
+.text-pop {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  text-align: center;
+  font-size: 2em;
+  margin: 100px 0;
+}
+
+.text-pop.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
+
+/* Responsive tweaks */
+@media only screen and (max-width: 768px) {
+  .main-div {
+
+    height: auto;
+    /* adjust as needed */
+    overflow: hidden;
+    position: relative;
+  }
+
+  .main-div>img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+
+  body {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .phone-button svg {
+    transform: translateY(4px);
+  }
+
+  .calendar-button svg {
+    transform: translateY(5px);
+  }
+}
+
+
+
+/* Desktop nav toggles */
+.navbar .menu-toggle,
+.navbar .phone-button,
+.navbar .calendar-button {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: rgb(72, 73, 76);
+  cursor: pointer;
+  padding: 0 1rem;
+}
+
+.navbar .menu {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+
+
+
+/* Mobile nav */
+@media only screen and (max-width: 768px) {
+  :root {
+    --img-ratio3: 0.20;
+  }
+
+  .navbar {
+    justify-content: space-between;
+    padding: 1px 0.1rem;
+  }
+
+  .navbar .menu-toggle,
+  .navbar .phone-button,
+  .navbar .calendar-button {
+    display: block;
+  }
+
+  .navbar .menu {
+    display: none;
+    flex-direction: column;
+    background: rgba(153, 150, 137, 0.95);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    align-items: center;
+  }
+
+  .navbar.open .menu {
+    display: flex;
+  }
+
+  .navbar .menu a {
+    display: inline-block;
+    width: auto;
+    margin: 0.2rem 0;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
+    text-align: center;
+    color: white;
+  }
+
+  .navbar .menu a:hover {
+    background-color: rgba(239, 210, 107, 0.9);
+    border-radius: 5px;
+  }
+
+  .navbar .logo {
+    /* force a constant height on mobile */
+    height: 50px !important;
+    width: auto;
+  }
+
+  /* Base body text smaller */
+  body {
+    font-size: 14px;
+    /* was 16px */
+  }
+
+  /* Hero flying-text smaller via new ratios */
+  .text1 {
+    font-size: calc(var(--img-height) * 0.06) !important;
+    /* ~4% of hero height */
+  }
+
+  .text2 {
+    font-size: calc(var(--img-height) * 0.02) !important;
+    /* ~6% of hero height */
+  }
+
+  .text2 img {
+    margin-top: 1rem;
+    /* instead of 60px, use 1rem = font size of the text */
+  }
+
+  /* Keyframes */
+  @keyframes flyStop1 {
+    from {
+      transform: translate(-50%, calc(var(--img-height) * var(--landing-ratio1)*1.3));
+      opacity: 0;
+    }
+
+    to {
+      transform: translate(-50%, calc(var(--img-height) * var(--landing-ratio1)*1.3));
+      opacity: 1;
+    }
+  }
+
+  @keyframes flyStop2 {
+    from {
+      transform: translate(-50%, calc(var(--img-height) * var(--landing-ratio2)*1.2));
+      opacity: 0;
+    }
+
+    to {
+      transform: translate(-50%, calc(var(--img-height) * var(--landing-ratio2)*1.2));
+      opacity: 1;
+    }
+  }
+
+  .main-bullets h1 {
+    font-size: 2.25rem;
+    /* was 1.5rem */
+  }
+
+  /* Bullet text a bit smaller */
+  .main-bullets .main-bullet1,
+  .main-bullets .main-bullet2 {
+    font-size: 1rem;
+    /* was 1.2rem */
+  }
+
+
+  /* stack the image and overlay vertically */
+  .about-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 0 !important;
+  }
+
+
+  /* ensure the picture img still fills its container */
+  .about-div>picture,
+  .about-div>img {
+    width: 100%;
+    height: auto;
+  }
+
+  .services-div {
+    margin-top: 4rem !important;
+    font-size: 1rem;
+    /* was 1.2rem */
+  }
+
+  /* flow the overlay below the image */
+  .about-overlay {
+    position: static !important;
+    transform: none !important;
+    order: 1;
+    margin: 1rem 0 0;
+    /* top margin only */
+    padding-bottom: 0 !important;
+
+    /* span the full width of its parent (the image) */
+    width: 100% !important;
+    max-width: 100%;
+
+    /* include padding in that width */
+    box-sizing: border-box;
+  }
+
+  .navbar .logo {
+
+    margin-left: 5px;
+
+  }
+
+}
+
+/* Main bullets section */
+.main-bullets {
+  margin-top: 50px;
+  text-align: center;
+  /*border: 3px solid rgb(30, 144, 255);*/
+  /* DodgerBlue border around the whole container */
+}
+
+.main-bullets .main-bullet1,
+.main-bullets .main-bullet2 {
+  padding: 10px;
+  margin: 10px auto;
+  font-family: 'Raleway', sans-serif;
+}
+
+.main-bullets .main-bullet1 {
+  width: 90%;
+  font-size: 1.2rem;
+}
+
+.main-bullets .main-bullet2 {
+  width: 60%;
+}
+
+.main-bullets .main-bullet2 li {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+
+
+
+
+.about-div {
+  position: relative;
+  max-width: 1200px;
+  margin: 50px auto 0;
+  overflow: visible;
+  /* allow overlay to expand outside */
+  padding-bottom: var(--about-overlay-offset);
+}
+
+
+.services-div {
+  margin: 0 auto;
+  padding: 0 1rem;
+  max-width: 1200px;
+  font-size: 1.2rem;
+}
+
+.services-div h2 {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.about-div img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.about-overlay {
+  position: absolute;
+  font-family: 'Raleway', sans-serif;
+  /* anchor top edge 10% down from top of the image */
+  top: calc(var(--img-height) * 0.10);
+  left: 30%;
+  transform: translateX(-50%);
+
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+
+  /* fluid width, let height grow freely */
+  width: clamp(280px, 50%, 600px);
+  height: auto;
+
+  /* remove max-height and scrolling */
+  /* max-height: ...;  */
+  overflow: visible;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.about-overlay h2 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.about-overlay p {
+  text-align: left;
+  margin: 0;
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  line-height: 1.4;
+}
+
+
+
+.services-div {
+  margin-top: 50px;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  width: 90%;
+  /*border: 3px solid rgb(30, 144, 255);*/
+  /* DodgerBlue border around the whole container */
+}
+
+
+.services-div li {
+  margin-top: 10px;
+  text-align: left;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: rgba(239, 210, 107, 0.9);
+  margin: 0.5rem 0;
+  /* space above & below */
+  width: 100%;
+  align-items: center;
+}
+
+
+
+
+
+
+
+
+
+.site-footer {
+  background: #535353;
+  color: #fff;
+  font-family: 'Cormorant Garamond', serif;
+  padding: 3rem 1rem 1rem;
+}
+
+.footer-cta {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-cta h2 {
+  font-size: 2rem;
+  margin: 0;
+  padding-left: 2rem;
+}
+
+.btn-schedule {
+  background: #EFD26B;
+  color: #48494C;
+  text-transform: uppercase;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 0.25rem;
+}
+
+.site-footer hr {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 250px;
+}
+
+/* Contact column */
+.footer-column.contact .footer-logo {
+  max-width: 150px;
+  margin-bottom: 1rem;
+}
+
+.footer-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.footer-info .icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: #EFD26B;
+  margin-right: 0.5rem;
+}
+
+.footer-info a,
+.footer-info span {
+  color: #fff;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.social span {
+  font-size: 0.9rem;
+}
+
+.social a .icon.fab {
+  fill: #fff;
+}
+
+.footer-map iframe {
+  width: 100%;
+  height: 200px;
+  border: 0;
+  border-radius: 0.25rem;
+  margin-top: 1rem;
+}
+
+/* Hours & links columns */
+.footer-column.hours h3,
+.footer-column.links h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.footer-column.hours ul,
+.footer-column.links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column.hours li,
+.footer-column.links li {
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+}
+
+.footer-column.links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-column.links a:hover {
+  text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+  .footer-cta,
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-cta {
+    gap: 1rem;
+  }
+
+  .footer-column {
+    min-width: auto;
+  }
+
+  .footer-map iframe {
+    height: 150px;
+  }
+}
+
+
+
+
+
+
+/* let the background image span full width */
+.contact-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* overlay box */
+.contact-box {
+  position: absolute;
+  top: 55%;
+  /* vertical center */
+  left: 30%;
+  /* horizontal center */
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  /* above the image but below navbar if navbar is z-index:3+ */
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  width: clamp(300px, 60%, 500px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* style the form inside */
+.contact-box h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.75rem;
+}
+
+.contact-box label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.contact-box input,
+.contact-box textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.contact-box button {
+  display: block;
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.75rem;
+  background: #EFD26B;
+  color: #48494C;
+  border: none;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.contact-box button:hover {
+  opacity: 0.9;
+}
+
+/* make sure navbar sits on top of everything */
+.navbar {
+  z-index: 3;
+}
+
+/* responsive tweak: shrink box on small screens */
+@media (max-width: 768px) {
+  .contact-img {
+    display: none;
+  }
+
+  .contact-box {
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 5.5rem;
+  }
+
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+    /* keep them close together */
+  }
+
+  .menu-toggle {
+    margin-left: 0.1rem;
+    /* small space from phone icon */
+  }
+
+}
+
+
+/* ---- services-section.css ---- */
+.services-section {
+  padding: 4rem 1rem;
+  background-color: #faf9f2;
+  text-align: center;
+}
+
+.services-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+/* 3 columns × auto rows */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* card styling remains the same */
+.service-card {
+  background: #f7f7f7;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: transform 0.3s;
+  position: relative;
+  /* Add this */
+  max-height: 320px;
+  /* adjust this value */
+  overflow: hidden;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+}
+
+.service-icon {
+  margin-bottom: 1rem;
+}
+
+.service-card h3 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.25rem;
+  margin: 0 0 1.5rem;
+  color: #222;
+  flex-grow: 1;
+}
+
+
+.service-card {
+  perspective: 1000px;
+  /* enable 3D space */
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+/* front & back faces */
+.card-face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  box-sizing: border-box;
+  padding: 1rem;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  overflow-y: auto;
+}
+
+.card-face p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+
+/* back is rotated away by default */
+.card-back {
+  transform: rotateY(180deg);
+}
+
+/* when flipped… */
+.service-card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* optional styling for the back button */
+.flip-back {
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  color: #C9AD6D;
+}
+
+
+.learn-more {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #C9AD6D;
+  text-decoration: none;
+  position: relative;
+}
+
+.learn-more::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: #C9AD6D;
+  width: 0;
+  transition: width 0.3s;
+  margin-top: 4px;
+}
+
+.learn-more:hover::after {
+  width: 100%;
+}
+
+.card-inner {
+  min-height: 200px;
+  /* or whatever minimum is safe */
+}
+
+
+/* MOBILE: disable 3D flip, single‐column cards, show back face inline */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    width: 100%;
+    margin: 0 auto 1.5rem;
+    perspective: none;
+    /* disable 3D on mobile */
+  }
+
+  .card-inner {
+    transform: none !important;
+    transform-style: flat !important;
+    height: auto !important;
+  }
+
+  /* Show only the front by default */
+  .service-card:not(.flipped) .card-front {
+    display: block !important;
+  }
+
+  .service-card:not(.flipped) .card-back {
+    display: none !important;
+  }
+
+  /* Show only the back if flipped */
+  .service-card.flipped .card-front {
+    display: none !important;
+  }
+
+  .service-card.flipped .card-back {
+    display: block !important;
+  }
+
+  /* Flat layout styling */
+  .card-inner {
+    transform: none !important;
+    height: auto !important;
+  }
+
+  .card-front,
+  .card-back {
+    position: relative !important;
+    transform: none !important;
+    backface-visibility: visible !important;
+    height: auto !important;
+  }
+
+  .card-face p {
+    font-size: 1.4rem;
+    line-height: 1.5;
+  }
+
+}
+
+
+
+
+/* wrap each learn-more + tooltip so we can position relative to the card */
+/* 1) wrapper around the “Learn more” link */
+.learn-wrap {
+  position: relative;
+}
+
+/* 2) the full-viewport bubble */
+/* remove the old centering */
+.tooltip {
+  position: fixed;
+  /* full-viewport positioning */
+  top: 0;
+  /* will be updated by JS */
+  left: 0;
+  /* spans from left edge */
+  width: 100vw;
+  /* full browser width */
+  max-width: none;
+  padding: 1.5rem;
+  background: white;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  display: none;
+  /* hidden until JS shows it */
+  z-index: 9999;
+}
+
+/* close button styling */
+.tooltip .close-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+
+/* 3) when you want to show it */
+.tooltip.visible {
+  display: block;
+}
+
+
+/* 4) the close “×” button inside the bubble */
+.tooltip .close-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #555;
+}
+
+
+
+
+/* ——— Reserve/Lead form ——— */
+.lead-form-section {
+  background: #f7f7f5;
+  /* soft, close to your #faf9f2 */
+  padding: 4rem 1rem;
+  color: rgb(72, 73, 76);
+  font-family: 'Raleway', sans-serif;
+}
+
+.lead-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.lead-form-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+  color: rgb(72, 73, 76);
+}
+
+.lead-text {
+  max-width: 900px;
+  margin: 0.5rem auto 2rem;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  opacity: 0.9;
+}
+
+/* pill inputs */
+.lead-form {
+  display: grid;
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.lead-form input {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border: 1px solid #e3e3e3;
+  border-radius: 999px;
+  background: #fff;
+  font: inherit;
+  color: rgb(72, 73, 76);
+  outline: none;
+  transition: box-shadow .2s ease, border-color .2s ease;
+}
+
+.lead-form input::placeholder {
+  color: #9aa0a6;
+  /* subtle placeholder */
+}
+
+.lead-form input:focus {
+  border-color: #EFD26B;
+  box-shadow: 0 0 0 4px rgba(239, 210, 107, 0.35);
+}
+
+/* reuse your gold button; just make it pill */
+.btn-pill {
+  border-radius: 999px !important;
+  padding: 1rem 2rem !important;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+/* small helpers */
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.form-note {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: rgb(72, 73, 76);
+  opacity: 0.85;
+}
+
+/* Responsive: stack is already single column; just adjust paddings */
+@media (max-width: 768px) {
+  .lead-form-section {
+    padding: 3rem 1rem;
+  }
+
+  .lead-form {
+    max-width: 680px;
+  }
+}
+
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* logo on left, menu on right */
+}
+
+.logo-link {
+  display: inline-block;
+}
+
+.logo {
+  height: 50px;
+  /* adjust as needed */
+  vertical-align: middle;
+}
+
+
+
+
+
+
+
+/* ======= New “hero” footer layout (keeps your colors) ======= */
+.site-footer {
+  background: #575756; /* keep existing theme */
+  color: #fff;
+  font-family: 'Cormorant Garamond', serif;
+  padding: 0; /* handled by .footer-hero */
+}
+
+.footer-hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 1rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; /* big map left */
+  gap: 2rem;
+  align-items: start;
+}
+
+.footer-map-large iframe {
+  width: 100%;
+  height: min(520px, 65vh);
+  border: 0;
+  border-radius: 8px;
+}
+
+/* Right panel */
+.footer-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-logo-xl {
+  max-width: 180px;
+  margin: 0 0 0.5rem;
+  filter: brightness(1.05);
+}
+
+.footer-title {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin: 0.25rem 0;
+  color: #fff;
+}
+
+.footer-sub {
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+  line-height: 1.5;
+  opacity: 0.95;
+  margin-bottom: 0.5rem;
+}
+
+.footer-info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.25rem 0 0.5rem;
+}
+.footer-info-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.35rem 0;
+}
+.footer-info-list .icon {
+  width: 20px;
+  height: 20px;
+  fill: #EFD26B; /* your gold */
+  flex: 0 0 20px;
+}
+.footer-link {
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(255,255,255,0.35);
+}
+.footer-link:hover { border-bottom-color: #EFD26B; color: #fff; }
+
+/* Social */
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0.5rem 0 0.75rem;
+  font-family: 'Raleway', sans-serif;
+}
+.social-btn svg {
+  width: 20px; height: 20px; fill: #fff;
+}
+.social-btn:hover svg { fill: #EFD26B; }
+
+/* Hours */
+.footer-hours h3 {
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  margin: 0.5rem 0;
+  text-transform: uppercase;
+}
+.footer-hours ul {
+  list-style: none; padding: 0; margin: 0;
+  font-family: 'Raleway', sans-serif;
+}
+.footer-hours li {
+  display: flex; justify-content: space-between;
+  gap: 1rem; margin: 0.25rem 0;
+  font-size: 0.98rem;
+}
+.footer-hours li span { opacity: 0.95; }
+
+/* Responsive: stack on small screens */
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-map-large iframe {
+    height: 360px;
+  }
+  .footer-hours li { font-size: 0.95rem; }
+}
+
+
+
+.service-icon {
+  margin-top: 8px;  /* space above the logo */
+}
+
+.service-logo {
+  width: 50px;   /* adjust size as needed */
+  height: auto;
+  display: block;
+}
+
+
+
+.membership-plan {
+  text-align: center;
+  padding: 4rem 2rem;
+  font-family: 'Raleway', sans-serif;
+}
+
+.membership-plan h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  color: #222;
+}
+
+/* Tabs */
+.plan-tabs {
+  display: flex;
+  justify-content: center;
+  border: 1px solid #EFD26B;
+  border-radius: 4px;
+  overflow: hidden;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.tab-link {
+  flex: 1;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: none;
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.tab-link.active {
+  background: #EFD26B;
+  color: #333;
+}
+
+/* Plan Box */
+.plan-box {
+  border: 1px solid #EFD26B;
+  padding: 2rem;
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.plan-box h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.plan-box .price {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.plan-box .price span {
+  font-size: 1rem;
+  font-weight: normal;
+  margin-left: 0.25rem;
+}
+
+.plan-box .age {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.plan-box hr {
+  border: 0;
+  border-top: 1px solid #EFD26B;
+  margin: 1.5rem 0;
+}
+
+.plan-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.plan-box ul li {
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.plan-box ul li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #EFD26B;
+}
+
+/* hide all panels by default; show only the active one */
+.membership-plan .tab-content { display: none; }
+.membership-plan .tab-content.active { display: block; }
+
+
+/* Program Terms inside the plan box */
+.program-terms {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #f9f9f9;
+  border-left: 4px solid #EFD26B; /* matches your gold */
+  font-size: 0.95rem;
+  line-height: 1.4;
+  border-radius: 4px;
+}
+
+.program-terms h4 {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #333;
+}
+
+.program-terms ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.program-terms li {
+  margin-bottom: 0.5rem;
+}
+
+/* Override check marks for Program Terms */
+.program-terms ul {
+  list-style: disc;      /* normal filled bullets */
+  padding-left: 1.5rem;  /* space for bullets */
+}
+
+.program-terms ul li {
+  position: static;      /* reset positioning */
+  padding-left: 0;       /* no extra left padding */
+}
+
+.program-terms ul li::before {
+  content: none;         /* remove the checkmark */
+}
+
+
+/* Buttons */
+.btn-outline{
+  display:inline-block;
+  padding:.65rem 1.2rem;
+  border:5px solid #EFD26B;
+  border-radius:6px;
+  text-decoration:none;
+  color:#333;
+  transition:background .25s ease, color .25s ease, border-color .25s ease;
+}
+.btn-outline:hover{ background:#EFD26B; color:#333; }
+
+/* Placement */
+.plan-cta, .ins-cta { margin-top: 1rem; text-align:center; }
+
+/* Smooth anchor jump + offset for sticky header */
+html { scroll-behavior: smooth; }
+#insurance, #membership { scroll-margin-top: 90px; } /* adjust to your fixed header height */
+
+.consent-row { margin-top: 0.75rem; }
+.consent-label { font-size: 0.95rem; color: #555; display: flex; gap: 0.5rem; align-items: flex-start; }
+.consent-label input { margin-top: 0.2rem; }
+.consent-note { display: block; margin-left: 1.5rem; color: #666; opacity: 0.9; }
+
+.navbar{
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;   /* was likely space-between */
+}
+
+.navbar .nav-right{
+  margin-left:auto;             /* pushes calendar/phone/hamburger to the right */
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+/* small gap between logo and KR chip (and the Plan chip if you add it) */
+.logo-link + .logo-split-link{ margin-left:3px; }
+.logo-split-link + .logo-split-link{ margin-left:3px; }
+
+.abbr{
+  font-size:1.7em;
+}
+
+.btn-center {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
