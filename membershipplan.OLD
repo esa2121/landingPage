@@ -64,56 +64,72 @@
 
         <section class="membership-plan">
   <br><br><br><br><br>
-  <h1>OneDay Dental Lifetime Membership Plan</h1><br><br>
+  <h1>In-house Membership Plan</h1><br>
+  <h2>Choose Your Plan</h2>
 
+  <!-- Tabs -->
+  <div class="plan-tabs">
+    <button class="tab-link active" data-tab="child">Child Plan</button>
+    <button class="tab-link" data-tab="adult">Adult Plan</button>
+  </div>
 
   <!-- Child Plan -->
   <div class="tab-content active" id="child">
     <div class="plan-box">
-      <h3>🌟 Simple. Affordable. For Life.</h3>
-      <p class="price">One-Time Fee: $299</p>
-      <p class="age">👨‍👩‍👧‍👦 Covers up to 4 immediate family members (yourself + 3 family)
-                    ➕ Add additional family members for just $50 each</p>
-
-                    👉 No renewals. No annual fees. Just lifetime savings.
+      <h3>CHILD PLAN</h3>
+      <p class="price">$249<span>/yr</span></p>
+      <p class="age">Ages 12 &amp; under</p>
       <hr>
-      <h3>🎁 Member Benefits</h3>
       <ul>
-        <li>30% discount on all dental treatments<br>
-(Excludes implants, orthodontics, and whitening)</li>
-        <li>Applies to your whole family enrolled under the plan</li>
-        <li>Affordable dental care that grows with your family</li>
+        <li>2 Routine Cleanings</li>
+        <li>2 Fluoride Treatments</li>
+        <li>1–2 Exams</li>
+        <li>Any recommended X-Rays</li>
+        <li>1 Emergency Exam</li>
+        <li>20% Discount on additional treatment</li>
       </ul>
 
       <!-- Program Terms INSIDE the same box -->
       <div class="program-terms">
         <h4><em>Program Terms:</em></h4>
         <ul>
-          <li>One-time lifetime membership – no renewals ever</li>
-          <li>Valid for the lifetime of our practice</li>
-          <li>Membership ends only if the office permanently closes or transfers ownership</li>
-          <li>Fee must be paid in full at enrollment</li>
-          <li><b>Non-transferable</b> (applies only to enrolled family members)</li>
-          <li>Not dental insurance – cannot be combined with insurance, discount programs, or promotions</li>
-          <li>No free treatments included – benefit is the guaranteed <b>30% discount</b></li>
+          <li>Membership is valid for 12 months starting on the date of enrollment.</li>
+          <li>The total fee is due at the time of purchase; installment payments are not available.</li>
+          <li>Memberships are non-refundable and may not be transferred to another person. Benefits cannot be refunded or credited if they are not used.</li>
+          <li>This membership is not dental insurance and cannot be combined with any dental insurance benefits, discount programs, or promotional offers.</li>
         </ul>
       </div>
-
-      <hr>
-      <h3>💡 Why Choose Lifetime Membership?</h3>
-      <ul>
-        <li>Protect your family’s smile with <b>affordable care for life</b></li>
-        <li><b>One payment today = lifetime benefits</b></li>
-        <li>Peace of mind knowing your dental costs are always reduced</li>
-      </ul>
-
-      <hr>
-      <h3>📌 Ready to Join?</h3>
-
-      👉 Call us today at 571-655-0880
     </div>
   </div>
 
+  <!-- Adult Plan -->
+  <div class="tab-content" id="adult">
+    <div class="plan-box">
+      <h3>ADULT PLAN</h3>
+      <p class="price">$299<span>/yr</span></p>
+      <p class="age">Ages 13 &amp; up</p>
+      <hr>
+      <ul>
+        <li>2 Routine Cleanings</li>
+        <li>2 Air-Flow Polishing (includes coffee and tea stain removal)</li>
+        <li>1–2 Exams</li>
+        <li>Any recommended X-Rays</li>
+        <li>1 Emergency Exam</li>
+        <li>20% Discount on additional treatment</li>
+      </ul>
+
+      <!-- Program Terms INSIDE the same box -->
+      <div class="program-terms">
+        <h4><em>Program Terms:</em></h4>
+        <ul>
+          <li>Membership is valid for 12 months starting on the date of enrollment.</li>
+          <li>The total fee is due at the time of purchase; installment payments are not available.</li>
+          <li>Memberships are non-refundable and may not be transferred to another person. Benefits cannot be refunded or credited if they are not used.</li>
+          <li>This membership is not dental insurance and cannot be combined with any dental insurance benefits, discount programs, or promotional offers.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>
 
 
