@@ -1765,3 +1765,84 @@ html {
 .hero-img.fade {
   opacity: 0;
 }
+
+
+
+/* Section */
+.reviews-section { padding: clamp(40px,6vw,80px) 20px; background:#fff; }
+.reviews-title { text-align:center; font-weight:700; margin:0 0 28px; font-size:clamp(22px,3vw,36px); color:#0e2144; font-family: 'Cormorant Garamond', serif;}
+
+/* Header (Option A: compact, button next to title) */
+.google-reviews { max-width:1200px; margin:0 auto; background:#fafafa; border-radius:14px; box-shadow:0 2px 12px rgba(0,0,0,.06); overflow:hidden; }
+
+/* tightened header row */
+.source-header{
+  display:flex;
+  align-items:center;          /* FIX: was align-items:right (invalid) */
+  gap:8px;                     /* tighter gap between logo/title/button */
+  padding:10px 12px;           /* less vertical + horizontal padding */
+  flex-wrap:wrap;              /* allows graceful wrap on very small widths */
+}
+
+/* smaller logo + title */
+.source-logo { width:18px; height:18px; }
+.source-header h3 { margin:0; font-size:15px; color:#1a2a4a; font-weight:700; line-height:1; }
+
+/* button sits near the title (no auto push), slimmer pill */
+.write-review{
+  margin-left:12px;            /* <-- replaces margin-left:auto */
+  font-size:12px;
+  text-decoration:none;
+  padding:4px 8px;             /* slimmer */
+  border-radius:999px;
+  background:#0e2144;
+  color:#fff;
+  line-height:1.2;
+  white-space:nowrap;          /* keeps button compact */
+}
+
+/* Carousel viewport & track */
+.viewport { position:relative; overflow:hidden; padding:12px 56px 6px; }
+.track { display:flex; gap:16px; transition: transform .45s ease; will-change: transform; }
+
+/* Cards: 3 per view on desktop, 1 per view on small screens */
+.card {
+  flex: 0 0 calc((100% - 2*16px) / 3); /* 3 cards + 2 gaps */
+  background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:12px;
+  padding:14px; box-shadow:0 1px 8px rgba(0,0,0,.08);
+}
+@media (max-width: 900px) {
+  .viewport { padding:12px 48px 6px; }
+  .card { flex: 0 0 100%; }
+
+  /* optional: slightly tighter header on mobile */
+  .source-header{ gap:6px; padding:10px 10px; }
+  .write-review{ margin-left:8px; padding:4px 8px; }
+}
+
+/* Card content */
+.head { display:grid; grid-template-columns:40px 1fr auto; align-items:center; gap:10px; margin-bottom:10px; }
+.avatar{ width:40px; height:40px; border-radius:999px; object-fit:cover; border:1px solid rgba(0,0,0,.08); }
+.author{ margin:0 0 2px; font-weight:700; color:#1c2a44; font-size:14px; }
+.stars{ letter-spacing:2px; color:#fbb034; font-size:14px; line-height:1; }
+.badge{ width:20px; height:20px; }
+.text{ color:#3c4759; font-size:14px; line-height:1.45; margin:0 0 8px; font-family: 'Raleway', sans-serif;}
+.meta{ color:#7a8596; font-size:12px; margin:0; }
+
+/* Arrows */
+.nav{
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:36px; height:36px; border:0; border-radius:999px;
+  background:rgba(14,33,68,.08); color:#0e2144; font-size:20px;
+  display:grid; place-items:center; cursor:pointer; user-select:none;
+}
+.nav:hover{ background:rgba(14,33,68,.12); }
+.prev{ left:12px; } .next{ right:12px; }
+
+/* Dots */
+.dots{ display:flex; gap:8px; justify-content:center; align-items:center; margin:12px 0 8px; }
+.dots button{
+  width:8px; height:8px; border-radius:999px; border:0; cursor:pointer;
+  background:#cfd6e3;
+}
+.dots button[aria-current="true"]{ background:#0e2144; }
