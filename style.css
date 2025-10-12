@@ -1768,68 +1768,113 @@ html {
 
 
 
-/* Section */
-.reviews-section { padding: clamp(40px,6vw,80px) 20px; background:#fff; }
-.reviews-title { text-align:center; font-weight:700; margin:0 0 28px; font-size:clamp(22px,3vw,36px); color:#0e2144; font-family: 'Cormorant Garamond', serif;}
-
-/* Header (Option A: compact, button next to title) */
-.google-reviews { max-width:1200px; margin:0 auto; background:#fafafa; border-radius:14px; box-shadow:0 2px 12px rgba(0,0,0,.06); overflow:hidden; }
-
-/* tightened header row */
-.source-header{
-  display:flex;
-  align-items:center;          /* FIX: was align-items:right (invalid) */
-  gap:8px;                     /* tighter gap between logo/title/button */
-  padding:10px 12px;           /* less vertical + horizontal padding */
-  flex-wrap:wrap;              /* allows graceful wrap on very small widths */
+/* =========================
+   Reviews: Layout & Header
+   ========================= */
+.reviews-section {
+  padding: clamp(40px,6vw,80px) 20px;
+  background:#fff;
+}
+.reviews-title {
+  text-align:center;
+  font-weight:700;
+  margin:0 0 28px;
+  font-size:clamp(22px,3vw,36px);
+  color:#0e2144;
+  font-family:'Cormorant Garamond', serif;
 }
 
-/* smaller logo + title */
-.source-logo { width:18px; height:18px; }
-.source-header h3 { margin:0; font-size:15px; color:#1a2a4a; font-weight:700; line-height:1; }
+.google-reviews{
+  max-width:1200px;
+  margin:0 auto;
+  background:#fafafa;
+  border-radius:14px;
+  box-shadow:0 2px 12px rgba(0,0,0,.06);
+  overflow:hidden;
+}
 
-/* button sits near the title (no auto push), slimmer pill */
+/* Header (Option A: compact, button near title) */
+.source-header{
+  display:flex;
+  align-items:center;
+  gap:8px;               /* tighten gaps between logo, title, button */
+  padding:10px 12px;     /* compact padding */
+  flex-wrap:wrap;        /* graceful wrap on very small widths */
+}
+.source-logo{ width:18px; height:18px; }
+.source-header h3{
+  margin:0;
+  font-size:15px;
+  color:#1a2a4a;
+  font-weight:700;
+  line-height:1;
+}
 .write-review{
-  margin-left:12px;            /* <-- replaces margin-left:auto */
+  margin-left:12px;      /* not auto; sits close to title */
   font-size:12px;
   text-decoration:none;
-  padding:4px 8px;             /* slimmer */
+  padding:4px 8px;
   border-radius:999px;
   background:#0e2144;
   color:#fff;
   line-height:1.2;
-  white-space:nowrap;          /* keeps button compact */
+  white-space:nowrap;
 }
 
-/* Carousel viewport & track */
-.viewport { position:relative; overflow:hidden; padding:12px 56px 6px; }
-.track { display:flex; gap:16px; transition: transform .45s ease; will-change: transform; }
-
-/* Cards: 3 per view on desktop, 1 per view on small screens */
-.card {
-  flex: 0 0 calc((100% - 2*16px) / 3); /* 3 cards + 2 gaps */
-  background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:12px;
-  padding:14px; box-shadow:0 1px 8px rgba(0,0,0,.08);
+/* =========================
+   Carousel Viewport/Track
+   ========================= */
+.viewport{
+  position:relative;
+  overflow:hidden;
+  padding:12px 56px 6px; /* room for arrows on desktop */
 }
-@media (max-width: 900px) {
-  .viewport { padding:12px 48px 6px; }
-  .card { flex: 0 0 100%; }
-
-  /* optional: slightly tighter header on mobile */
-  .source-header{ gap:6px; padding:10px 10px; }
-  .write-review{ margin-left:8px; padding:4px 8px; }
+.track{
+  display:flex;
+  gap:16px;
+  transition:transform .45s ease;
+  will-change:transform;
 }
 
-/* Card content */
-.head { display:grid; grid-template-columns:40px 1fr auto; align-items:center; gap:10px; margin-bottom:10px; }
-.avatar{ width:40px; height:40px; border-radius:999px; object-fit:cover; border:1px solid rgba(0,0,0,.08); }
+/* =========================
+   Cards
+   ========================= */
+.card{
+  flex:0 0 calc((100% - 2*16px) / 3);  /* 3 per view on desktop */
+  background:#fff;
+  border:1px solid rgba(0,0,0,.06);
+  border-radius:12px;
+  padding:14px;
+  box-shadow:0 1px 8px rgba(0,0,0,.08);
+}
+
+/* Card header: supports with/without avatar */
+.head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:10px;
+}
+.avatar{
+  width:40px; height:40px; border-radius:999px;
+  object-fit:cover; border:1px solid rgba(0,0,0,.08);
+}
 .author{ margin:0 0 2px; font-weight:700; color:#1c2a44; font-size:14px; }
 .stars{ letter-spacing:2px; color:#fbb034; font-size:14px; line-height:1; }
 .badge{ width:20px; height:20px; }
-.text{ color:#3c4759; font-size:14px; line-height:1.45; margin:0 0 8px; font-family: 'Raleway', sans-serif;}
+
+.text{
+  color:#3c4759;
+  font-size:14px;
+  line-height:1.45;
+  margin:0 0 8px;
+  font-family:'Raleway', sans-serif;
+}
 .meta{ color:#7a8596; font-size:12px; margin:0; }
 
-/* Arrows */
+/* =========================
+   Arrows
+   ========================= */
 .nav{
   position:absolute; top:50%; transform:translateY(-50%);
   width:36px; height:36px; border:0; border-radius:999px;
@@ -1837,12 +1882,70 @@ html {
   display:grid; place-items:center; cursor:pointer; user-select:none;
 }
 .nav:hover{ background:rgba(14,33,68,.12); }
-.prev{ left:12px; } .next{ right:12px; }
+.prev{ left:12px; }
+.next{ right:12px; }
 
-/* Dots */
-.dots{ display:flex; gap:8px; justify-content:center; align-items:center; margin:12px 0 8px; }
+/* =========================
+   Dots
+   ========================= */
+.dots{
+  display:flex; gap:8px; justify-content:center; align-items:center;
+  margin:12px 0 8px;
+}
 .dots button{
   width:8px; height:8px; border-radius:999px; border:0; cursor:pointer;
   background:#cfd6e3;
 }
 .dots button[aria-current="true"]{ background:#0e2144; }
+
+/* =========================
+   Mobile tweaks (≤768px)
+   ========================= */
+/* --- Mobile review preview (collapsed by default) --- */
+/* === Mobile review preview + Show more/less === */
+@media (max-width: 900px) {
+  /* collapsed state: show ~4 lines with a soft fade */
+  .card.is-clamped .text{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    /* stylelint-disable-next-line property-no-vendor-prefix */
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    position: relative;
+  }
+  .card.is-clamped .text::after{
+    content: "";
+    position: absolute; left: 0; right: 0; bottom: 0;
+    height: 2.2em;
+    background: linear-gradient(to bottom, rgba(255,255,255,0), #fff 65%);
+    pointer-events: none;
+  }
+
+  /* button (only shows when JS adds .has-overflow) */
+  .card .show-more{ display: none; }
+  .card.has-overflow .show-more{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 6px;
+    padding: 6px 10px;
+    font-size: 12px;
+    line-height: 1.1;
+    border: 1px solid rgba(0,0,0,.12);
+    border-radius: 999px;
+    background: #f7f8fb;
+    color: #0e2144;
+    cursor: pointer;
+  }
+  .card.has-overflow .show-more:focus{
+    outline: 2px solid #0e2144;
+    outline-offset: 2px;
+  }
+}
+
+/* Desktop: never clamp text and hide the button */
+@media (min-width: 901px){
+  .card .show-more{ display: none !important; }
+}
+
