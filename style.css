@@ -1949,3 +1949,20 @@ html {
   .card .show-more{ display: none !important; }
 }
 
+.review-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 5; /* show only first 5 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.read-more a {
+  color: #003366;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.read-more a:hover {
+  text-decoration: underline;
+}
