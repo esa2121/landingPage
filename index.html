@@ -1449,29 +1449,6 @@
             init();
         })();
 
-        document.addEventListener("DOMContentLoaded", () => {
-            const reviews = document.querySelectorAll(".review-text");
-            const maxChars = 350;
-            const reviewUrl = "https://www.google.com/maps/place/OneDay+Dental/@38.8782259,-77.4384561,17z/data=!3m1!5s0x89b6443aa987f951:0x8bff926f0d716e7e!4m8!3m7!1s0x89b64500d6c62fcd:0xf0c00a55b5cf28c!8m2!3d38.8782259!4d-77.4358812!9m1!1b1!16s%2Fg%2F11lzwdhq3f?entry=ttu&g_ep=EgoyMDI1MTAyNy4wIKXMDSoASAFQAw%3D%3D";
-
-            reviews.forEach(review => {
-                const fullText = review.textContent.trim();
-                if (fullText.length > maxChars) {
-                    const shortText = fullText.slice(0, maxChars).trim() + "… ";
-                    review.innerHTML = `
-        ${shortText}
-        <a class="read-more-link"
-           href="${reviewUrl}"
-           target="_blank" rel="noopener noreferrer">
-           Read full review →
-        </a>`;
-                }
-            });
-
-
-        });
-
-
     </script>
 
 
