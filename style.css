@@ -1966,3 +1966,7 @@ html {
 .read-more a:hover {
   text-decoration: underline;
 }
+
+
+.dots .dot { width:10px; height:10px; border-radius:50%; border:0; opacity:.4; margin:0 6px; }
+.dots .dot.active { opacity:1; }

@@ -577,7 +577,8 @@
             <header class="source-header">
                 <img src="./images/logo-google.svg" alt="" class="source-logo" />
                 <h3>Google Reviews</h3>
-                <a class="write-review" href="https://www.google.com/maps/place/OneDay+Dental/@38.8782259,-77.4384561,17z/data=!3m1!5s0x89b6443aa987f951:0x8bff926f0d716e7e!4m8!3m7!1s0x89b64500d6c62fcd:0xf0c00a55b5cf28c!8m2!3d38.8782259!4d-77.4358812!9m1!1b1!16s%2Fg%2F11lzwdhq3f?entry=ttu&g_ep=EgoyMDI1MTAyNy4wIKXMDSoASAFQAw%3D%3D"
+                <a class="write-review"
+                    href="https://www.google.com/maps/place/OneDay+Dental/@38.8782259,-77.4384561,17z/data=!3m1!5s0x89b6443aa987f951:0x8bff926f0d716e7e!4m8!3m7!1s0x89b64500d6c62fcd:0xf0c00a55b5cf28c!8m2!3d38.8782259!4d-77.4358812!9m1!1b1!16s%2Fg%2F11lzwdhq3f?entry=ttu&g_ep=EgoyMDI1MTAyNy4wIKXMDSoASAFQAw%3D%3D"
                     target="_blank" rel="noopener">Write a Review</a>
             </header>
 
@@ -758,7 +759,97 @@
         </div>
     </section>
 
+<script>
+(function () {
+  const root     = document.querySelector('.google-reviews');
+  if (!root) return;
 
+  const viewport = root.querySelector('.viewport');
+  const track    = viewport.querySelector('.track');
+  const cards    = [...track.querySelectorAll('.card')];
+  const btnPrev  = viewport.querySelector('.nav.prev');
+  const btnNext  = viewport.querySelector('.nav.next');
+  const dotsWrap = viewport.querySelector('.dots');
+
+  if (!cards.length) return;
+
+  // --- responsive: cards per view ---
+  const mq = window.matchMedia('(max-width: 768px)');
+  function perView() { return mq.matches ? 1 : 3; } // adjust desktop value if you use 2 or 4
+
+  let index = 0;              // page index (0..pages-1)
+  let pages = 1;              // number of pages
+
+  // style each card width by JS so "page" math is exact
+  function sizeCards() {
+    const pv = perView();
+    cards.forEach(c => c.style.minWidth = (100 / pv) + '%');
+  }
+
+  // build correct number of dots = pages (not cards)
+  function buildDots() {
+    dotsWrap.innerHTML = '';
+    for (let i = 0; i < pages; i++) {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'dot';
+      b.setAttribute('aria-label', `Go to slide ${i+1}`);
+      b.addEventListener('click', () => { goTo(i); });
+      dotsWrap.appendChild(b);
+    }
+  }
+
+  function updatePages() {
+    pages = Math.max(1, Math.ceil(cards.length / perView()));
+    // If current index is out of range after a resize, clamp it
+    if (index > pages - 1) index = pages - 1;
+  }
+
+  function goTo(i) {
+    index = Math.max(0, Math.min(i, pages - 1));
+    const offset = index * (100); // each "page" = 100% width of viewport
+    track.style.transform = `translateX(-${offset}%)`;
+    reflectUI();
+  }
+
+  function reflectUI() {
+    // update dots
+    const ds = [...dotsWrap.children];
+    ds.forEach((d, i) => d.classList.toggle('active', i === index));
+    // hide arrows/pagination when not needed
+    const manyPages = pages > 1;
+    btnPrev.style.visibility = manyPages ? 'visible' : 'hidden';
+    btnNext.style.visibility = manyPages ? 'visible' : 'hidden';
+    dotsWrap.style.display   = manyPages ? '' : 'none';
+  }
+
+  function onPrev() { goTo(index - 1); }
+  function onNext() { goTo(index + 1); }
+
+  // init
+  sizeCards();
+  updatePages();
+  buildDots();
+  goTo(index);
+
+  // events
+  btnPrev.addEventListener('click', onPrev);
+  btnNext.addEventListener('click', onNext);
+  mq.addEventListener('change', () => {
+    sizeCards();
+    updatePages();
+    buildDots();
+    goTo(index);
+  });
+  window.addEventListener('resize', () => {
+    // if you prefer resize instead of matchMedia only
+    sizeCards();
+    updatePages();
+    buildDots();
+    goTo(index);
+  });
+})();
+</script>
 
 
     <br>
@@ -1377,8 +1468,9 @@
                 }
             });
 
-            
+
         });
+
 
     </script>
 
