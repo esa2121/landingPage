@@ -517,7 +517,7 @@ img {
   position: absolute;
     font-family: 'Raleway', sans-serif;
   /* anchor top edge 10% down from top of the image */
-  top: calc(var(--img-height) * 0.10);
+  top: calc(var(--img-height) * 1);
   left: 74%;
   transform: translateX(-50%);
 
